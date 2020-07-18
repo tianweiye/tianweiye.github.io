@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>tensorflow2.X求各项乘积 | Twy&#39;sBlog</title>
+  <meta name="keywords" content=" tensorflow ">
+  <meta name="description" content="tensorflow2.X求各项乘积 | Twy&#39;sBlog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hello World">
+<meta property="og:url" content="http://tianweiye.github.io/2020/07/18/hello-world/index.html">
+<meta property="og:site_name" content="Twy&#39;sBlog">
+<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-07-18T12:48:18.883Z">
+<meta property="article:modified_time" content="2020-07-18T13:42:48.580Z">
+<meta property="article:author" content="Tian Weiye">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/avatar.png">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+</div>
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.png" />
+</a>
+<div class="author">
+    <span>Tian Weiye</span>
+</div>
+
+<div class="icon">
+    
+        
+        <a title="instagram" href="https://www.instagram.com/tianweiye24" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-instagram"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="weibo" href="https://www.weibo.com/u/6126449270" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-weibo"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="email" href="mailto:twy971227@gmail.com" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-email"></use>
+                </svg>
+            
+        </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li><div class="all active" data-rel="全部文章">全部文章<small>(74)</small></div></li>
+    
+        
+            
+            <li><div data-rel="工具">工具<small>(10)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Linux"><i class="fold iconfont icon-right"></i>Linux<small>(19)</small></div>
+                
+                    <ul class="sub hide">
+                        
+                        <li><div data-rel="Linux<--->Linux">Linux<small>(1)</small></div>
+                            
+                        </li>
+                            
+                    </ul>
+                
+            </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+            <li><div data-rel="机器学习">机器学习<small>(16)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="课后笔记">课后笔记<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="生活日志">生活日志<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="python">python<small>(26)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    
+    
+    </div>
+    <div></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="74">
+<input type="hidden" id="yelog_site_word_count" value="10.5k">
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">全部文章</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" />
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>通信</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>bottle</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Breaking</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Git</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Latex</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Linux</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Linux,shell</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>mac</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Matlab</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>numpy</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>processing</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>shell</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>tensorflow</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Vim</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Widget,Js</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <div id="local-search-result">
+
+    </div>
+    
+    <nav id="title-list-nav">
+        
+        <a  class="全部文章 "
+           href="/2020/07/18/hello-world/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hello World">Hello World</span>
+            <span class="post-date" title="2020-07-18 21:48:18">2020/07/18</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/2020/07/18/Linux%E6%98%BE%E7%A4%BA%E5%8E%86%E5%8F%B2%E5%91%BD%E4%BB%A4/"
+           data-tag="Linux"
+           data-author="" >
+            <span class="post-title" title="Linux显示历史命令">Linux显示历史命令</span>
+            <span class="post-date" title="2020-07-18 00:00:00">2020/07/18</span>
+        </a>
+        
+        <a  class="全部文章 python "
+           href="/2020/07/18/bottle%E6%A8%A1%E7%89%88%E4%B8%AD%E5%B5%8C%E5%85%A5py%E4%BB%A3%E7%A0%81/"
+           data-tag="bottle"
+           data-author="" >
+            <span class="post-title" title="bottle模版中嵌入py代码">bottle模版中嵌入py代码</span>
+            <span class="post-date" title="2020-07-18 00:00:00">2020/07/18</span>
+        </a>
+        
+        <a  class="全部文章 python "
+           href="/2020/07/18/bottle%E6%A8%A1%E7%89%88%E5%8F%82%E6%95%B0%E5%AE%9A%E4%B9%89/"
+           data-tag="bottle"
+           data-author="" >
+            <span class="post-title" title="bottle模版参数定义">bottle模版参数定义</span>
+            <span class="post-date" title="2020-07-18 00:00:00">2020/07/18</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/2020/07/17/Linux%E5%88%9B%E5%BB%BA%E5%A5%97%E5%A8%83%E7%8A%B6%E6%96%87%E4%BB%B6%E5%A4%B9/"
+           data-tag="Linux"
+           data-author="" >
+            <span class="post-title" title="Linux创建套娃状文件夹">Linux创建套娃状文件夹</span>
+            <span class="post-date" title="2020-07-17 00:00:00">2020/07/17</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/2020/07/17/Linux%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6%E5%A4%B9%E5%A5%97%E5%A8%83/"
+           data-tag="Linux"
+           data-author="" >
+            <span class="post-title" title="Linux创建文件夹套娃">Linux创建文件夹套娃</span>
+            <span class="post-date" title="2020-07-17 00:00:00">2020/07/17</span>
+        </a>
+        
+        <a  class="全部文章 python "
+           href="/2020/07/17/bottleGET%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/"
+           data-tag="bottle"
+           data-author="" >
+            <span class="post-title" title="bottleGET的基本原理">bottleGET的基本原理</span>
+            <span class="post-date" title="2020-07-17 00:00:00">2020/07/17</span>
+        </a>
+        
+        <a  class="全部文章 python "
+           href="/2020/07/17/bottle%E4%BD%BF%E7%94%A8%E6%A8%A1%E7%89%88%E6%96%87%E4%BB%B6%E4%BC%A0%E9%80%92%E5%8F%82%E6%95%B0/"
+           data-tag="bottle"
+           data-author="" >
+            <span class="post-title" title="bottle使用模版文件传递参数">bottle使用模版文件传递参数</span>
+            <span class="post-date" title="2020-07-17 00:00:00">2020/07/17</span>
+        </a>
+        
+        <a  class="全部文章 python "
+           href="/2020/07/17/bottle%E4%BF%AE%E6%94%B9%E5%90%8E%E8%87%AA%E5%8A%A8%E9%80%82%E7%94%A8/"
+           data-tag="bottle"
+           data-author="" >
+            <span class="post-title" title="bottle修改后自动适用">bottle修改后自动适用</span>
+            <span class="post-date" title="2020-07-17 00:00:00">2020/07/17</span>
+        </a>
+        
+        <a  class="全部文章 python "
+           href="/2020/07/17/bottle%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1/"
+           data-tag="bottle"
+           data-author="" >
+            <span class="post-title" title="bottle动态路由">bottle动态路由</span>
+            <span class="post-date" title="2020-07-17 00:00:00">2020/07/17</span>
+        </a>
+        
+        <a  class="全部文章 python "
+           href="/2020/07/17/bottle%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/"
+           data-tag="bottle"
+           data-author="" >
+            <span class="post-title" title="bottle动态路由类型转换">bottle动态路由类型转换</span>
+            <span class="post-date" title="2020-07-17 00:00:00">2020/07/17</span>
+        </a>
+        
+        <a  class="全部文章 python "
+           href="/2020/07/17/bottle%E5%AE%9E%E7%8E%B0%E5%A4%9A%E4%B8%AA%E9%A1%B5%E9%9D%A2/"
+           data-tag="bottle"
+           data-author="" >
+            <span class="post-title" title="bottle实现多个页面">bottle实现多个页面</span>
+            <span class="post-date" title="2020-07-17 00:00:00">2020/07/17</span>
+        </a>
+        
+        <a  class="全部文章 python "
+           href="/2020/07/17/bottle%E5%BC%BA%E5%88%B6%E4%B8%8B%E8%BD%BD/"
+           data-tag="bottle"
+           data-author="" >
+            <span class="post-title" title="bottle强制下载">bottle强制下载</span>
+            <span class="post-date" title="2020-07-17 00:00:00">2020/07/17</span>
+        </a>
+        
+        <a  class="全部文章 python "
+           href="/2020/07/17/bottle%E6%A8%A1%E6%9D%BF%E5%B5%8C%E5%A5%97/"
+           data-tag="bottle"
+           data-author="" >
+            <span class="post-title" title="bottle模板嵌套">bottle模板嵌套</span>
+            <span class="post-date" title="2020-07-17 00:00:00">2020/07/17</span>
+        </a>
+        
+        <a  class="全部文章 python "
+           href="/2020/07/17/bottle%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D/"
+           data-tag="bottle"
+           data-author="" >
+            <span class="post-title" title="bottle正则表达式匹配">bottle正则表达式匹配</span>
+            <span class="post-date" title="2020-07-17 00:00:00">2020/07/17</span>
+        </a>
+        
+        <a  class="全部文章 python "
+           href="/2020/07/17/bottle%E7%94%A8http%E9%BB%98%E8%AE%A4%E7%AB%AF%E5%8F%A3/"
+           data-tag="bottle"
+           data-author="" >
+            <span class="post-title" title="bottle用http默认端口">bottle用http默认端口</span>
+            <span class="post-date" title="2020-07-17 00:00:00">2020/07/17</span>
+        </a>
+        
+        <a  class="全部文章 python "
+           href="/2020/07/17/bottle%E7%AC%AC%E4%B8%80%E7%A7%8D%E6%A1%86%E6%9E%B6/"
+           data-tag="bottle"
+           data-author="" >
+            <span class="post-title" title="bottle第一种框架">bottle第一种框架</span>
+            <span class="post-date" title="2020-07-17 00:00:00">2020/07/17</span>
+        </a>
+        
+        <a  class="全部文章 python "
+           href="/2020/07/17/bottle%E7%AC%AC%E4%BA%8C%E7%A7%8D%E6%A1%86%E6%9E%B6/"
+           data-tag="bottle"
+           data-author="" >
+            <span class="post-title" title="bottle第二种框架">bottle第二种框架</span>
+            <span class="post-date" title="2020-07-17 00:00:00">2020/07/17</span>
+        </a>
+        
+        <a  class="全部文章 python "
+           href="/2020/07/17/bottle%E7%BD%91%E9%A1%B5%E9%87%8D%E5%AE%9A%E5%90%91-%E7%94%B0%E5%81%89%E6%A5%AD%E7%9A%84MacBook%20Pro/"
+           data-tag="bottle"
+           data-author="" >
+            <span class="post-title" title="bottle网页重定向-田偉業的MacBook Pro">bottle网页重定向-田偉業的MacBook Pro</span>
+            <span class="post-date" title="2020-07-17 00:00:00">2020/07/17</span>
+        </a>
+        
+        <a  class="全部文章 python "
+           href="/2020/07/17/bottle%E7%BD%91%E9%A1%B5%E9%87%8D%E5%AE%9A%E5%90%91/"
+           data-tag="bottle"
+           data-author="" >
+            <span class="post-title" title="bottle网页重定向">bottle网页重定向</span>
+            <span class="post-date" title="2020-07-17 00:00:00">2020/07/17</span>
+        </a>
+        
+        <a  class="全部文章 python "
+           href="/2020/07/17/bottle%E8%87%AA%E5%AE%9A%E4%B9%89%E8%BF%87%E6%BB%A4%E5%99%A8/"
+           data-tag="bottle"
+           data-author="" >
+            <span class="post-title" title="bottle自定义过滤器">bottle自定义过滤器</span>
+            <span class="post-date" title="2020-07-17 00:00:00">2020/07/17</span>
+        </a>
+        
+        <a  class="全部文章 python "
+           href="/2020/07/17/bottle%E8%BF%94%E5%9B%9E404/"
+           data-tag="bottle"
+           data-author="" >
+            <span class="post-title" title="bottle返回404">bottle返回404</span>
+            <span class="post-date" title="2020-07-17 00:00:00">2020/07/17</span>
+        </a>
+        
+        <a  class="全部文章 python "
+           href="/2020/07/17/bottle%E9%80%9A%E8%BF%87request.body%E8%8E%B7%E5%8F%96%E7%94%A8%E6%88%B7%E8%BE%93%E5%85%A5/"
+           data-tag="bottle"
+           data-author="" >
+            <span class="post-title" title="bottle通过request.body获取用户输入">bottle通过request.body获取用户输入</span>
+            <span class="post-date" title="2020-07-17 00:00:00">2020/07/17</span>
+        </a>
+        
+        <a  class="全部文章 python "
+           href="/2020/07/17/bottle%E9%80%9A%E8%BF%87url%E8%8E%B7%E5%8F%96%E7%94%A8%E6%88%B7%E8%BE%93%E5%85%A5/"
+           data-tag="bottle"
+           data-author="" >
+            <span class="post-title" title="bottle通过url获取用户输入">bottle通过url获取用户输入</span>
+            <span class="post-date" title="2020-07-17 00:00:00">2020/07/17</span>
+        </a>
+        
+        <a  class="全部文章 python "
+           href="/2020/07/17/bottle%E9%9D%99%E6%80%81%E5%9B%BE%E7%89%87%E6%96%87%E4%BB%B6/"
+           data-tag="bottle"
+           data-author="" >
+            <span class="post-title" title="bottle静态图片文件">bottle静态图片文件</span>
+            <span class="post-date" title="2020-07-17 00:00:00">2020/07/17</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/2020/07/17/shell%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92%E5%92%8C$/"
+           data-tag="shell"
+           data-author="" >
+            <span class="post-title" title="shell参数传递和$">shell参数传递和$</span>
+            <span class="post-date" title="2020-07-17 00:00:00">2020/07/17</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/2020/07/17/shell%E5%A4%9A%E8%A1%8C%E6%B3%A8%E9%87%8A/"
+           data-tag="shell"
+           data-author="" >
+            <span class="post-title" title="shell多行注释">shell多行注释</span>
+            <span class="post-date" title="2020-07-17 00:00:00">2020/07/17</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/2020/07/17/shell%E5%BE%AA%E7%8E%AF%E8%AF%AD%E5%8F%A5for/"
+           data-tag="shell"
+           data-author="" >
+            <span class="post-title" title="shell循环语句for">shell循环语句for</span>
+            <span class="post-date" title="2020-07-17 00:00:00">2020/07/17</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/2020/07/17/shell%E6%88%AA%E5%8F%96%E5%AD%97%E7%AC%A6%E4%B8%B2/"
+           data-tag="shell"
+           data-author="" >
+            <span class="post-title" title="shell截取字符串">shell截取字符串</span>
+            <span class="post-date" title="2020-07-17 00:00:00">2020/07/17</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/2020/07/17/shell%E6%8B%BC%E6%8E%A5%E5%AD%97%E7%AC%A6%E4%B8%B2/"
+           data-tag="shell"
+           data-author="" >
+            <span class="post-title" title="shell拼接字符串">shell拼接字符串</span>
+            <span class="post-date" title="2020-07-17 00:00:00">2020/07/17</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/2020/07/17/shell%E6%95%B0%E7%BB%84/"
+           data-tag="shell"
+           data-author="" >
+            <span class="post-title" title="shell数组">shell数组</span>
+            <span class="post-date" title="2020-07-17 00:00:00">2020/07/17</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/2020/07/17/shell%E6%AF%94%E8%BE%83/"
+           data-tag="shell"
+           data-author="" >
+            <span class="post-title" title="shell比较">shell比较</span>
+            <span class="post-date" title="2020-07-17 00:00:00">2020/07/17</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/2020/07/17/shell%E8%8E%B7%E5%8F%96%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%95%BF%E5%BA%A6/"
+           data-tag="shell"
+           data-author="" >
+            <span class="post-title" title="shell获取字符串长度">shell获取字符串长度</span>
+            <span class="post-date" title="2020-07-17 00:00:00">2020/07/17</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/2020/07/17/shell%E8%BE%93%E5%85%A5%E5%92%8C%E8%BE%93%E5%87%BA/"
+           data-tag="shell"
+           data-author="" >
+            <span class="post-title" title="shell输入和输出">shell输入和输出</span>
+            <span class="post-date" title="2020-07-17 00:00:00">2020/07/17</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/2020/07/17/shell%E8%BE%93%E5%87%BA%E4%BD%9C%E4%B8%BA%E8%BE%93%E5%85%A5/"
+           data-tag="shell"
+           data-author="" >
+            <span class="post-title" title="shell输出作为输入">shell输出作为输入</span>
+            <span class="post-date" title="2020-07-17 00:00:00">2020/07/17</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/2020/07/17/shell%E8%BE%93%E5%87%BA%E5%A4%9A%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%B2/"
+           data-tag="shell"
+           data-author="" >
+            <span class="post-title" title="shell输出多个字符串">shell输出多个字符串</span>
+            <span class="post-date" title="2020-07-17 00:00:00">2020/07/17</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/2020/07/17/shell%E8%BF%9B%E7%A8%8BPID%E5%92%8C$/"
+           data-tag="shell"
+           data-author="" >
+            <span class="post-title" title="shell进程PID和$">shell进程PID和$</span>
+            <span class="post-date" title="2020-07-17 00:00:00">2020/07/17</span>
+        </a>
+        
+        <a  class="全部文章 python "
+           href="/2020/07/14/numpy%E7%94%9F%E6%88%90Onehot/"
+           data-tag="numpy"
+           data-author="" >
+            <span class="post-title" title="numpy生成Onehot">numpy生成Onehot</span>
+            <span class="post-date" title="2020-07-14 00:00:00">2020/07/14</span>
+        </a>
+        
+        <a  class="全部文章 机器学习 "
+           href="/2020/07/14/tensorflow2.X%E6%B1%82%E5%90%84%E9%A1%B9%E4%B9%98%E7%A7%AF/"
+           data-tag="tensorflow"
+           data-author="" >
+            <span class="post-title" title="tensorflow2.X求各项乘积">tensorflow2.X求各项乘积</span>
+            <span class="post-date" title="2020-07-14 00:00:00">2020/07/14</span>
+        </a>
+        
+        <a  class="全部文章 机器学习 "
+           href="/2020/07/14/tensorflow2.X%E8%BD%AC%E6%8D%A2Onehot/"
+           data-tag="tensorflow"
+           data-author="" >
+            <span class="post-title" title="tensorflow2.X转换Onehot">tensorflow2.X转换Onehot</span>
+            <span class="post-date" title="2020-07-14 00:00:00">2020/07/14</span>
+        </a>
+        
+        <a  class="全部文章 机器学习 "
+           href="/2020/07/14/tensorflow%E6%8E%A5%E5%8F%97%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%8F%82%E6%95%B0/"
+           data-tag="tensorflow"
+           data-author="" >
+            <span class="post-title" title="tensorflow接受命令行参数">tensorflow接受命令行参数</span>
+            <span class="post-date" title="2020-07-14 00:00:00">2020/07/14</span>
+        </a>
+        
+        <a  class="全部文章 机器学习 "
+           href="/2020/07/14/tensorflow%E7%BB%93%E6%9E%9C%E5%8F%AF%E8%A7%86%E5%8C%96tensorboard/"
+           data-tag="tensorflow"
+           data-author="" >
+            <span class="post-title" title="tensorflow结果可视化tensorboard">tensorflow结果可视化tensorboard</span>
+            <span class="post-date" title="2020-07-14 00:00:00">2020/07/14</span>
+        </a>
+        
+        <a  class="全部文章 python "
+           href="/2020/07/13/numpy%E7%AD%89%E9%97%B4%E8%B7%9D%E5%90%91%E9%87%8F/"
+           data-tag="numpy"
+           data-author="" >
+            <span class="post-title" title="numpy等间距向量">numpy等间距向量</span>
+            <span class="post-date" title="2020-07-13 00:00:00">2020/07/13</span>
+        </a>
+        
+        <a  class="全部文章 python "
+           href="/2020/07/11/numpy%E6%8C%89%E8%A1%8C%E6%8C%89%E5%88%97%E6%B7%BB%E5%8A%A0/"
+           data-tag="numpy"
+           data-author="" >
+            <span class="post-title" title="numpy按行按列添加">numpy按行按列添加</span>
+            <span class="post-date" title="2020-07-11 00:00:00">2020/07/11</span>
+        </a>
+        
+        <a  class="全部文章 机器学习 "
+           href="/2020/07/11/tensorflow1.X%E5%8F%AF%E8%A7%86%E5%8C%96%E5%9B%BEtensorboard/"
+           data-tag="tensorflow"
+           data-author="" >
+            <span class="post-title" title="tensorflow1.X可视化图tensorboard">tensorflow1.X可视化图tensorboard</span>
+            <span class="post-date" title="2020-07-11 00:00:00">2020/07/11</span>
+        </a>
+        
+        <a  class="全部文章 机器学习 "
+           href="/2020/07/11/tensorflow2.X%E7%9B%91%E5%90%AC/"
+           data-tag="tensorflow"
+           data-author="" >
+            <span class="post-title" title="tensorflow2.X监听">tensorflow2.X监听</span>
+            <span class="post-date" title="2020-07-11 00:00:00">2020/07/11</span>
+        </a>
+        
+        <a  class="全部文章 机器学习 "
+           href="/2020/07/06/tensorflow1.X%E5%8F%82%E6%95%B0%E7%A9%BA%E9%97%B4%E5%8F%98%E9%87%8F%E5%BC%95%E7%94%A8/"
+           data-tag="tensorflow"
+           data-author="" >
+            <span class="post-title" title="tensorflow1.X参数空间变量引用">tensorflow1.X参数空间变量引用</span>
+            <span class="post-date" title="2020-07-06 00:00:00">2020/07/06</span>
+        </a>
+        
+        <a  class="全部文章 Linux Linux "
+           href="/2020/07/05/Linux%E6%97%B6%E9%97%B4%E5%92%8C%E6%97%A5%E6%9C%9F/"
+           data-tag="Linux,shell"
+           data-author="" >
+            <span class="post-title" title="Linux时间和日期">Linux时间和日期</span>
+            <span class="post-date" title="2020-07-05 00:00:00">2020/07/05</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/2020/07/05/Linux%E6%9F%A5%E7%9C%8B%E8%BF%9B%E7%A8%8B/"
+           data-tag="Linux"
+           data-author="" >
+            <span class="post-title" title="Linux查看进程">Linux查看进程</span>
+            <span class="post-date" title="2020-07-05 00:00:00">2020/07/05</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/2020/07/05/Linux%E7%A3%81%E7%9B%98%E4%BF%A1%E6%81%AF/"
+           data-tag="Linux"
+           data-author="" >
+            <span class="post-title" title="Linux磁盘信息">Linux磁盘信息</span>
+            <span class="post-date" title="2020-07-05 00:00:00">2020/07/05</span>
+        </a>
+        
+        <a  class="全部文章 机器学习 "
+           href="/2020/07/05/tensorflow1.X%E4%BC%9A%E8%AF%9D%E6%B1%82%E5%80%BC/"
+           data-tag="tensorflow"
+           data-author="" >
+            <span class="post-title" title="tensorflow1.X会话求值">tensorflow1.X会话求值</span>
+            <span class="post-date" title="2020-07-05 00:00:00">2020/07/05</span>
+        </a>
+        
+        <a  class="全部文章 机器学习 "
+           href="/2020/07/05/tensorflow1.X%E5%9B%BA%E5%AE%9A%E5%90%8D%E5%AD%97%E5%8F%98%E9%87%8F/"
+           data-tag="tensorflow"
+           data-author="" >
+            <span class="post-title" title="tensorflow1.X固定名字变量">tensorflow1.X固定名字变量</span>
+            <span class="post-date" title="2020-07-05 00:00:00">2020/07/05</span>
+        </a>
+        
+        <a  class="全部文章 机器学习 "
+           href="/2020/07/05/tensorflow1.X%E5%B8%B8%E9%87%8F/"
+           data-tag="tensorflow"
+           data-author="" >
+            <span class="post-title" title="tensorflow1.X常量">tensorflow1.X常量</span>
+            <span class="post-date" title="2020-07-05 00:00:00">2020/07/05</span>
+        </a>
+        
+        <a  class="全部文章 机器学习 "
+           href="/2020/07/05/tensorflow1.X%E7%9F%A9%E9%98%B5%E7%BB%B4%E6%95%B0/"
+           data-tag="tensorflow"
+           data-author="" >
+            <span class="post-title" title="tensorflow1.X矩阵维数">tensorflow1.X矩阵维数</span>
+            <span class="post-date" title="2020-07-05 00:00:00">2020/07/05</span>
+        </a>
+        
+        <a  class="全部文章 机器学习 "
+           href="/2020/07/05/tensorflow1.X%E8%87%AA%E9%80%82%E5%90%8D%E5%AD%97%E5%8F%98%E9%87%8F/"
+           data-tag="tensorflow"
+           data-author="" >
+            <span class="post-title" title="tensorflow1.X自适名字变量">tensorflow1.X自适名字变量</span>
+            <span class="post-date" title="2020-07-05 00:00:00">2020/07/05</span>
+        </a>
+        
+        <a  class="全部文章 python "
+           href="/2020/07/04/numpy%E7%94%9F%E6%88%90%E5%9D%87%E5%8C%80%E5%88%86%E5%B8%83/"
+           data-tag="numpy"
+           data-author="" >
+            <span class="post-title" title="numpy生成均匀分布">numpy生成均匀分布</span>
+            <span class="post-date" title="2020-07-04 00:00:00">2020/07/04</span>
+        </a>
+        
+        <a  class="全部文章 python "
+           href="/2020/07/04/numpy%E8%AF%BB%E5%8F%96CSV/"
+           data-tag="numpy"
+           data-author="" >
+            <span class="post-title" title="numpy读取CSV">numpy读取CSV</span>
+            <span class="post-date" title="2020-07-04 00:00:00">2020/07/04</span>
+        </a>
+        
+        <a  class="全部文章 机器学习 "
+           href="/2020/07/04/tensorflow1.X%E5%8A%A0%E5%81%8F%E7%BD%AE/"
+           data-tag="tensorflow"
+           data-author="" >
+            <span class="post-title" title="tensorflow1.X加偏置">tensorflow1.X加偏置</span>
+            <span class="post-date" title="2020-07-04 00:00:00">2020/07/04</span>
+        </a>
+        
+        <a  class="全部文章 机器学习 "
+           href="/2020/07/04/tensorflow1.X%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4%E5%86%85%E5%88%9B%E5%BB%BA%E5%8F%98%E9%87%8F/"
+           data-tag="tensorflow"
+           data-author="" >
+            <span class="post-title" title="tensorflow1.X命名空间内创建变量">tensorflow1.X命名空间内创建变量</span>
+            <span class="post-date" title="2020-07-04 00:00:00">2020/07/04</span>
+        </a>
+        
+        <a  class="全部文章 机器学习 "
+           href="/2020/07/04/tensorflow1.X%E6%94%B9%E5%8F%98%E7%BB%93%E7%82%B9%E5%80%BC/"
+           data-tag="tensorflow"
+           data-author="" >
+            <span class="post-title" title="tensorflow1.X改变结点值">tensorflow1.X改变结点值</span>
+            <span class="post-date" title="2020-07-04 00:00:00">2020/07/04</span>
+        </a>
+        
+        <a  class="全部文章 机器学习 "
+           href="/2020/07/04/tensorflow1.X%E9%98%9F%E5%88%97/"
+           data-tag="tensorflow"
+           data-author="" >
+            <span class="post-title" title="tensorflow1.X队列">tensorflow1.X队列</span>
+            <span class="post-date" title="2020-07-04 00:00:00">2020/07/04</span>
+        </a>
+        
+        <a  class="全部文章 生活日志 "
+           href="/2019/11/27/Breaking%E5%8A%A8%E4%BD%9C%E4%BA%91%E9%9B%86/"
+           data-tag="Breaking"
+           data-author="" >
+            <span class="post-title" title="Breaking动作云集">Breaking动作云集</span>
+            <span class="post-date" title="2019-11-27 03:28:49">2019/11/27</span>
+        </a>
+        
+        <a  class="全部文章 课后笔记 "
+           href="/2019/11/12/%E4%BB%A3%E7%A0%81OFDM/"
+           data-tag="通信"
+           data-author="" >
+            <span class="post-title" title="代码OFDM">代码OFDM</span>
+            <span class="post-date" title="2019-11-12 02:55:31">2019/11/12</span>
+        </a>
+        
+        <a  class="全部文章 工具 "
+           href="/2019/10/18/Vim%E6%8F%92%E4%BB%B6vim-matlab/"
+           data-tag="Git,Matlab,Vim"
+           data-author="" >
+            <span class="post-title" title="Vim插件vim-matlab">Vim插件vim-matlab</span>
+            <span class="post-date" title="2019-10-18 19:13:33">2019/10/18</span>
+        </a>
+        
+        <a  class="全部文章 工具 "
+           href="/2019/10/18/Mac%E6%9B%B4%E6%94%B9usr-bin%E4%B8%8B%E6%96%87%E4%BB%B6/"
+           data-tag="mac"
+           data-author="" >
+            <span class="post-title" title="Mac更改usr-bin下文件">Mac更改usr-bin下文件</span>
+            <span class="post-date" title="2019-10-18 15:17:09">2019/10/18</span>
+        </a>
+        
+        <a  class="全部文章 工具 "
+           href="/2019/10/18/%E5%9F%BA%E4%BA%8EChatra-%E7%9A%84%E8%81%8A%E5%A4%A9Widget/"
+           data-tag="Widget,Js"
+           data-author="" >
+            <span class="post-title" title="基于Chatra-的聊天Widget">基于Chatra-的聊天Widget</span>
+            <span class="post-date" title="2019-10-18 09:59:05">2019/10/18</span>
+        </a>
+        
+        <a  class="全部文章 工具 "
+           href="/2019/10/17/Vim%E6%8F%92%E4%BB%B6vim-processing/"
+           data-tag="mac,Git,processing"
+           data-author="" >
+            <span class="post-title" title="Vim插件vim-processing">Vim插件vim-processing</span>
+            <span class="post-date" title="2019-10-17 22:48:03">2019/10/17</span>
+        </a>
+        
+        <a  class="全部文章 工具 "
+           href="/2019/10/14/Mac%E6%96%87%E4%BB%B6%E7%9A%84%E9%BB%98%E8%AE%A4%E6%89%93%E5%BC%80%E6%96%B9%E5%BC%8F/"
+           data-tag="mac"
+           data-author="" >
+            <span class="post-title" title="Mac文件的默认打开方式">Mac文件的默认打开方式</span>
+            <span class="post-date" title="2019-10-14 16:30:04">2019/10/14</span>
+        </a>
+        
+        <a  class="全部文章 工具 "
+           href="/2019/10/12/Vim%E6%8F%92%E4%BB%B6vim-latex-live-preview/"
+           data-tag="Latex"
+           data-author="" >
+            <span class="post-title" title="Vim插件vim-latex-live-preview">Vim插件vim-latex-live-preview</span>
+            <span class="post-date" title="2019-10-12 23:29:08">2019/10/12</span>
+        </a>
+        
+        <a  class="全部文章 工具 "
+           href="/2019/10/12/Vim%E9%85%8D%E7%BD%AELatex%E7%8E%AF%E5%A2%83/"
+           data-tag="Latex"
+           data-author="" >
+            <span class="post-title" title="Vim配置Latex环境">Vim配置Latex环境</span>
+            <span class="post-date" title="2019-10-12 23:29:08">2019/10/12</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/2019/10/06/Shell%E5%88%9D%E8%AF%86%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/"
+           data-tag="mac"
+           data-author="" >
+            <span class="post-title" title="Shell初识环境变量">Shell初识环境变量</span>
+            <span class="post-date" title="2019-10-06 00:00:00">2019/10/06</span>
+        </a>
+        
+        <a  class="全部文章 工具 "
+           href="/2019/10/04/Git%E4%BB%A3%E7%A0%81%E5%9B%9E%E6%BB%9A-%E8%BD%AC/"
+           data-tag="Git"
+           data-author="" >
+            <span class="post-title" title="Git代码回滚-转">Git代码回滚-转</span>
+            <span class="post-date" title="2019-10-04 23:29:08">2019/10/04</span>
+        </a>
+        
+        <a  class="全部文章 工具 "
+           href="/2019/10/04/Git%E6%96%87%E4%BB%B6%E5%BF%BD%E7%95%A5-%E8%BD%AC/"
+           data-tag="Git"
+           data-author="" >
+            <span class="post-title" title="Git文件忽略-转">Git文件忽略-转</span>
+            <span class="post-date" title="2019-10-04 23:29:08">2019/10/04</span>
+        </a>
+        
+        <a  class="全部文章 工具 "
+           href="/2019/10/04/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"
+           data-tag="Git"
+           data-author="" >
+            <span class="post-title" title="Git常用命令">Git常用命令</span>
+            <span class="post-date" title="2019-10-04 23:29:08">2019/10/04</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-tensorflow2.X求各项乘积" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">tensorflow2.X求各项乘积</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="机器学习">机器学习</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color1">tensorflow</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            发布时间 : <time class="date" title='最后更新: 2020-07-19 06:24:45'>2020-07-14 00:00</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        <span>字数:53</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">a_l   = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line">a_np  = np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>])</span><br><span class="line">a_tf  = tf.constant([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>])</span><br><span class="line"></span><br><span class="line">b_l  = tf.reduce_prod(a_l)</span><br><span class="line">b_np = tf.reduce_prod(a_np)</span><br><span class="line">b_tf = tf.reduce_prod(a_tf)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">sess=tf.Session()</span><br><span class="line">sess.run(tf.global_variables_initializer())</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">print(sess.run([b_l,b_np,b_tf]))</span><br><span class="line"></span><br><span class="line"><span class="comment">#[24, 24, 24]</span></span><br></pre></td></tr></table></figure>
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源 https://tianweiye.github.io </span>
+    </div>
+</article>
+
+
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2016-2020
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>
