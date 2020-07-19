@@ -2,9 +2,9 @@
 <html>
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-  <title>tensorflow1.X矩阵维数 | Twy&#39;sBlog</title>
-  <meta name="keywords" content=" tensorflow ">
-  <meta name="description" content="tensorflow1.X矩阵维数 | Twy&#39;sBlog">
+  <title>计算机组成原理和安全性() | Twy&#39;sBlog</title>
+  <meta name="keywords" content=" 计算机组成原理 ">
+  <meta name="description" content="计算机组成原理和安全性() | Twy&#39;sBlog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="清华大学-数据挖掘-2.5 特征选择  特征选择信息熵（Entropy）假设一个变量可以取2个值，量化取值的不确定性概率是0.5-&gt;熵最高-&gt;不确定概率是1.0-&gt;熵最低-&gt;确定$$X : {a&#x3D;\text{“non-smoker”},b&#x3D;\text{“smoker”}} \H(X)&#x3D;-\sum_{i&#x3D;1}^np(x_i)log_bp(x_i)\$$ 性别的不确定性对于一">
 <meta property="og:type" content="article">
@@ -1061,9 +1061,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-tensorflow1.X矩阵维数" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-计算机组成原理和安全性" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">tensorflow1.X矩阵维数</h1>
+        <h1 class="article-title">计算机组成原理和安全性()</h1>
     
     <div class="article-meta">
         
@@ -1073,7 +1073,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="机器学习">机器学习</a>
+            <a  data-rel="课后笔记">课后笔记</a>
             
         </span>
         
@@ -1081,19 +1081,19 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
-            <a class="color1">tensorflow</a>
+            <a class="color3">计算机组成原理</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2020-07-19 06:24:23'>2020-07-05 00:00</time>
+            发布时间 : <time class="date" title='最后更新: 2020-07-19 22:05:48'>2020-07-13 00:00</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:69</span>
+        <span>字数:329</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -1112,7 +1112,7 @@
     
     <div class="toc-ref">
     
-        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#コンピュータシステムアーキテクチャ特論安全性"><span class="toc-text">(コンピュータシステム・アーキテクチャ特論)安全性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#なぜマイクロプロセッサでセキュリティー"><span class="toc-text">なぜ，マイクロプロセッサでセキュリティー？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#マイクロプロセッサにおいて"><span class="toc-text">マイクロプロセッサにおいて</span></a></li></ol></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -1128,7 +1128,42 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"></span><br><span class="line">a 		= 	tf.Variable(<span class="number">10</span>,name=<span class="string">'0d'</span>)</span><br><span class="line">b 		= 	tf.Variable([<span class="number">10</span>,<span class="number">10</span>,<span class="number">10</span>],name=<span class="string">'1d'</span>)</span><br><span class="line">c 		= 	tf.Variable([[<span class="number">10</span>,<span class="number">10</span>,<span class="number">10</span>],</span><br><span class="line">						 [<span class="number">10</span>,<span class="number">10</span>,<span class="number">10</span>]],name=<span class="string">'2d'</span>)</span><br><span class="line"></span><br><span class="line">print(a.shape)</span><br><span class="line"><span class="comment">#()</span></span><br><span class="line"></span><br><span class="line">print(b.shape)</span><br><span class="line"><span class="comment">#(3,)</span></span><br><span class="line"></span><br><span class="line">print(c.shape)</span><br><span class="line"><span class="comment">#(2, 3)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#套括号的作用</span></span><br><span class="line">a1 		= 	tf.Variable([<span class="number">10</span>],name=<span class="string">'n0d'</span>)</span><br><span class="line">b1 		= 	tf.Variable([[<span class="number">10</span>,<span class="number">10</span>,<span class="number">10</span>]],name=<span class="string">'n1d'</span>)</span><br><span class="line"></span><br><span class="line">print(a1.shape)</span><br><span class="line"><span class="comment">#(1,)</span></span><br><span class="line"></span><br><span class="line">print(b1.shape)</span><br><span class="line"><span class="comment">#(1,3)</span></span><br></pre></td></tr></table></figure>
+        <h2 id="コンピュータシステムアーキテクチャ特論安全性">(コンピュータシステム・アーキテクチャ特論)安全性</h2>
+<h4 id="なぜマイクロプロセッサでセキュリティー">なぜ，マイクロプロセッサでセキュリティー？</h4>
+<p>如图, 在指令执行的时候存在安全隐患</p>
+<p><img src="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200719212917547.png" alt="image-20200719212917547" style="zoom:33%;" /><img src="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200719212959358.png" alt="image-20200719212959358" style="zoom:33%;" /></p>
+<h4 id="マイクロプロセッサにおいて">マイクロプロセッサにおいて</h4>
+<ol type="1">
+<li><p>(ブラックリスト)不正プログラムを探し出す</p>
+<ul>
+<li>ブラックリスト方式</li>
+<li>既知の不正プログラム検出</li>
+<li>ウィルス・スキャン：<a href="">静的検出＆動的検出</a></li>
+</ul></li>
+<li><p>(ホワイトリスト)正規プログラムだけを実施する</p>
+<ul>
+<li>ホワイトリスト方式</li>
+<li>認証済みプログラムのみ実行</li>
+<li>プログラム認証：<a href="">静的認証＆動的認証</a></li>
+</ul></li>
+<li><p>実行制御の乗っ取りを防止する</p>
+<ul>
+<li><p>バッファ・オーバフロー攻撃 データ境界を越えた書込み：strcpyなどで スタックの破壊(スタック・スマッシング)：攻撃コードの挿入と戻りアドレスの改ざん プログラム実行制御の乗っ取り：改ざんされた戻りアドレスがPCに設定</p></li>
+<li><p>Secure Casheによるバッファオーバフローの動的検出 ハードウェアによる戻りアドレス改ざんの検出： 戻りアドレス書込み時に複製(レプリカ・ライン)を作成 戻りアドレス読出し時に複製と比較 LIFO以外のアクセスにも対応</p>
+<p><img src="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200719220127840.png" alt="image-20200719220127840" style="zoom:33%;" /></p></li>
+</ul></li>
+<li><p>データの改竄を検出する</p>
+<ul>
+<li><p>Spoofing Attack ある偽のデータを生成し，それが本物であるかのように見せかける</p></li>
+<li><p>Splicing Attack データ・フラグメントのコピーや並び替えを行い他メモリ領域に格納する</p></li>
+<li><p>Replay Attack 過去に生成された有効なデータを再度入力させる</p></li>
+<li><p>Message認証コード(MAC) 命令ブロック毎に(CBC-MACやHMACなど)MACを計算し追加する. 命令キャッシュへのフェル時にMACを確認する． 具体的に，「書き込み時刻，書き込みアドレス，書き込みデータ，秘密鍵」でMACを生成する．つまり「いつ，誰が，どこの」書き込んだデータかを記録する．</p>
+<p><img src="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200719214301615.png" style="zoom: 25%;" /><img src="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200719214442389.png" style="zoom: 25%;" /></p></li>
+<li><p>ハッシュ木によりメモリイメージのダイジェストを保存する ハッシュ値のキャッシングにより<strong>性能オーバヘッド</strong>を削減する データ読み出し時：rootまでのハッシュ値を比較する．(メモリ整合性検証の実行) データ書き込み時：rootまでのハッシュ値を更新する．(ハッシュ木を更新する)</p>
+<p><img src="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200719215247971.png" alt="image-20200719215247971" style="zoom:33%;" /></p></li>
+</ul></li>
+</ol>
+
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源 https://tianweiye.github.io </span>
     </div>
