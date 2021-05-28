@@ -2,9 +2,9 @@
 <html>
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-  <title>bottle网页重定向 | Twy&#39;sBlog</title>
-  <meta name="keywords" content=" bottle ">
-  <meta name="description" content="bottle网页重定向 | Twy&#39;sBlog">
+  <title>Linux格式化行输出 | Twy&#39;sBlog</title>
+  <meta name="keywords" content=" Linux , shell ">
+  <meta name="description" content="Linux格式化行输出 | Twy&#39;sBlog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="按特征查找find &#x2F; 按名字 find &#x2F; -name &quot;*py&quot; 按大小查找 find &#x2F; -size +10M (+&#x2F;-,k,M,G) 最后一天里修改过的 find &#x2F; -mtime -1 最后十分钟内修改过的 find &#x2F; -mmin -10 过去访问过的 -amin -atime 混合查找 find &#x2F; -size +10k -and -name &quot;*py&quot; 按内容查找grep &quot;def">
 <meta property="og:type" content="article">
@@ -1072,9 +1072,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-bottle网页重定向" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Linux格式化行输出" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">bottle网页重定向</h1>
+        <h1 class="article-title">Linux格式化行输出</h1>
     
     <div class="article-meta">
         
@@ -1084,7 +1084,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="python">python</a>
+            <a  data-rel="Linux">Linux</a>
             
         </span>
         
@@ -1092,19 +1092,21 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
-            <a class="color2">bottle</a>
+            <a class="color1">Linux</a>
+            
+            <a class="color1">shell</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2020-07-19 06:23:00'>2020-07-17 00:00</time>
+            发布时间 : <time class="date" title='最后更新: 2021-05-28 23:44:33'>2021-05-28 23:34</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:27</span>
+        <span>字数:48</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -1123,7 +1125,7 @@
     
     <div class="toc-ref">
     
-        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#格式化输出awk-print-1"><span class="toc-text">格式化输出awk &#39;{print $1}&#39;</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -1139,7 +1141,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> bottle <span class="keyword">import</span> route, run, aboat</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@route("/")</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f1</span><span class="params">()</span>:</span></span><br><span class="line">	<span class="keyword">return</span> <span class="string">'hello 主页面'</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@route('/a')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f2</span><span class="params">()</span>:</span></span><br><span class="line">	abort(<span class="number">404</span>,<span class="string">'err 404'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">run(port=<span class="number">8088</span>,reloader=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+        <h2 id="格式化输出awk-print-1">格式化输出<code>awk '{print $1}'</code></h2>
+<p>加上判断语句 <code>awk '$1&lt;3 {print $1 $2 $3}' test2.txt</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ awk '$1&lt;3 &#123;print $1 $2 $3&#125;' test.txt </span><br><span class="line">1twy123</span><br><span class="line">2jyh321</span><br><span class="line">➜  ~ cat test.txt                              </span><br><span class="line">1 twy 123</span><br><span class="line">2 jyh 321</span><br><span class="line">3 tjf 223</span><br></pre></td></tr></table></figure>
+
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源 https://tianweiye.github.io </span>
     </div>
