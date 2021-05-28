@@ -2,9 +2,9 @@
 <html>
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-  <title>bottle使用模版文件传递参数 | Twy&#39;sBlog</title>
-  <meta name="keywords" content=" bottle ">
-  <meta name="description" content="bottle使用模版文件传递参数 | Twy&#39;sBlog">
+  <title>Sqlite基础 | Twy&#39;sBlog</title>
+  <meta name="keywords" content=" SQLite ">
+  <meta name="description" content="Sqlite基础 | Twy&#39;sBlog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="格式化输出awk &#39;{print $1}&#39; 加上判断语句 awk &#39;$1&lt;3 {print $1 $2 $3}&#39; test2.txt 1234567➜  ~ awk &#39;$1&lt;3 &amp;#123;print $1 $2 $3&amp;#125;&#39; test.txt 1twy1232jyh321➜  ~ cat test.txt                              1 twy 1">
 <meta property="og:type" content="article">
@@ -1084,9 +1084,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-bottle使用模版文件传递参数" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Sqlite基础" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">bottle使用模版文件传递参数</h1>
+        <h1 class="article-title">Sqlite基础</h1>
     
     <div class="article-meta">
         
@@ -1096,7 +1096,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="python">python</a>
+            <a  data-rel="其他">其他</a>
             
         </span>
         
@@ -1104,19 +1104,19 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
-            <a class="color2">bottle</a>
+            <a class="color2">SQLite</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2020-07-19 06:22:45'>2020-07-17 00:00</time>
+            发布时间 : <time class="date" title='最后更新: 2021-05-29 00:19:28'>2021-05-28 23:52</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:329</span>
+        <span>字数:192</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -1135,7 +1135,7 @@
     
     <div class="toc-ref">
     
-        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库文件.sqlite"><span class="toc-text">数据库文件*.sqlite</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#从.sql执行语句"><span class="toc-text">从*.sql执行语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建数据库create-table-tname-var1-char1var2-char1"><span class="toc-text">创建数据库CREATE TABLE tname (var1 char[1],var2 char[1]);</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#从其他表插入inset-into-t1-select-var1var2-from-t2"><span class="toc-text">从其他表插入INSET INTO t1 SELECT var1,var2 FROM t2;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#删除表drop-table-tname"><span class="toc-text">删除表DROP TABLE tname;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#匹配两个字段合并group-by-var1-var2"><span class="toc-text">匹配两个字段合并GROUP BY var1, var2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#表内连外连from-t1-inner-join-t2-on-t1.vt2.v"><span class="toc-text">表内连外连FROM t1 INNER JOIN t2 ON t1.v&#x3D;t2.v;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#统计count"><span class="toc-text">统计COUNT()</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -1151,11 +1151,24 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#模版的扩展名随意</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> bottle <span class="keyword">import</span> route, run, template</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">myobj</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,x=<span class="number">0</span>,y=<span class="number">0</span>)</span>:</span></span><br><span class="line">		self.x,self.y = x,y</span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">disp</span><span class="params">(self)</span>:</span></span><br><span class="line">		<span class="keyword">pass</span></span><br><span class="line">		<span class="keyword">return</span> (self.x, self.y)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@route('/&lt;name&gt;')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span><span class="params">(name=<span class="string">'Stranger'</span>)</span>:</span></span><br><span class="line">	age = <span class="number">22</span></span><br><span class="line">	weight = <span class="number">60</span></span><br><span class="line">	score = &#123;<span class="string">'ch'</span>:<span class="number">100</span>, <span class="string">'math'</span>:<span class="number">100</span>&#125;</span><br><span class="line">	obj = myobj(<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line">	mine = dict(name=name, age=age, weight=weight, score=score, obj=obj)</span><br><span class="line">	<span class="keyword">return</span> template(<span class="string">'bottle使用模版文件传递参数.tpl'</span>,**mine) </span><br><span class="line">	<span class="comment">#用template，把元素字典传入模版</span></span><br><span class="line">	<span class="comment">#也就是把文件内容当作字符串来处理</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">run(port=<span class="string">'80'</span>,debug=<span class="literal">True</span>, reloader=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
-
-<p>file:  <code>bottle使用模版文件传递参数.tpl</code></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!doctype <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">'utf-8'</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>	标签名	<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">h2</span>&gt;</span>标题			<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 元素访问 --&gt;</span></span><br><span class="line">Hello &#123;&#123;name&#125;&#125;!	<span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line">I'm &#123;&#123;age&#125;&#125;.<span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line">My weight: &#123;&#123;int(weight)&#125;&#125;.<span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 对象访问 --&gt;</span></span><br><span class="line">My obj: &#123;&#123;obj.disp()&#125;&#125;<span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 递归访问 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line">% if score:</span><br><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">td</span>&gt;</span>subject<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">td</span>&gt;</span>score<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">	%for (sub,score) in score.items():</span><br><span class="line">	<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;sub&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;score&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">	%end</span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line">% else:</span><br><span class="line">没有得到分数</span><br><span class="line">% end</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 参数传递见，bottle使用模版文件.py --&gt;</span></span><br></pre></td></tr></table></figure>
-
+        <h2 id="数据库文件.sqlite">数据库文件<code>*.sqlite</code></h2>
+<p>使用方法 <code>sqlite3 database.sqlite</code></p>
+<h2 id="从.sql执行语句">从<code>*.sql</code>执行语句</h2>
+<p>使用方法<code>sqlite3 database.sqlite &lt; sampl.sql</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#sampl.sql</span><br><span class="line">.tables</span><br><span class="line">SELECT * FROM talbe1;</span><br></pre></td></tr></table></figure>
+<h2 id="创建数据库create-table-tname-var1-char1var2-char1">创建数据库<code>CREATE TABLE tname (var1 char[1],var2 char[1]);</code></h2>
+<p>参数类型 <code>char[5],int,float</code></p>
+<h2 id="从其他表插入inset-into-t1-select-var1var2-from-t2">从其他表插入<code>INSET INTO t1 SELECT var1,var2 FROM t2;</code></h2>
+<p>将表t2中<code>var1 vat2</code>插入表t1</p>
+<h2 id="删除表drop-table-tname">删除表<code>DROP TABLE tname;</code></h2>
+<h2 id="匹配两个字段合并group-by-var1-var2">匹配两个字段合并<code>GROUP BY var1, var2</code></h2>
+<h2 id="表内连外连from-t1-inner-join-t2-on-t1.vt2.v">表内连外连<code>FROM t1 INNER JOIN t2 ON t1.v=t2.v;</code></h2>
+<p>其他连接<code>INNER/LEFT/RIGHT JOIN</code></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELET * FROM t1 INNER JOIN t2 ON t1.id = t2.id;</span><br><span class="line">SELET * FROM t1 INNER JOIN t2 ON t1.id = t2.id WHERE id&lt;100;</span><br></pre></td></tr></table></figure>
+<h2 id="统计count">统计<code>COUNT()</code></h2>
+<p>返回一行<code>SELECT COUNT(*) FROM t1;</code></p>
+<p>(不合并)统计相同<code>id</code>有多少行 <code>SELECT COUNT(DISTINCT id) FROM t1;</code></p>
+<p>(合并)统计相同id有多少行<code>SELECT COUNT(*) GROUP BY id FROM t1;</code></p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源 https://tianweiye.github.io </span>
