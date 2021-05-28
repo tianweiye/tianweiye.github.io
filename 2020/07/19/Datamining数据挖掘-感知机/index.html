@@ -6,53 +6,19 @@
   <meta name="keywords" content=" Datamining ">
   <meta name="description" content="Datamining数据挖掘-感知机 | Twy&#39;sBlog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="16 适合的基函数模型 16.1 Introduction 14 15章中介绍了核方法（kernel methods），通过核方法可以制作非线性模型，来进行分类（classification）或和回归（regression），预测中使用 \[ f(\mathbf{x})&#x3D;\mathbf{w}^{T} \phi(\mathbf{x})\\ \boldsymbol{\phi}(\mathbf{x})&#x3D;">
+<meta name="description" content="按特征查找find &#x2F; 按名字 find &#x2F; -name &quot;*py&quot; 按大小查找 find &#x2F; -size +10M (+&#x2F;-,k,M,G) 最后一天里修改过的 find &#x2F; -mtime -1 最后十分钟内修改过的 find &#x2F; -mmin -10 过去访问过的 -amin -atime 混合查找 find &#x2F; -size +10k -and -name &quot;*py&quot; 按内容查找grep &quot;def">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Datamining数据挖掘-16章读书笔记">
-<meta property="og:url" content="http://tianweiye.github.io/2020/07/19/Datamining%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98-16%E7%AB%A0%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:title" content="Linux查找文件的几种方法">
+<meta property="og:url" content="http://tianweiye.github.io/2021/05/28/Linux%E6%9F%A5%E6%89%BE%E6%96%87%E4%BB%B6%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/index.html">
 <meta property="og:site_name" content="Twy&#39;sBlog">
-<meta property="og:description" content="16 适合的基函数模型 16.1 Introduction 14 15章中介绍了核方法（kernel methods），通过核方法可以制作非线性模型，来进行分类（classification）或和回归（regression），预测中使用 \[ f(\mathbf{x})&#x3D;\mathbf{w}^{T} \phi(\mathbf{x})\\ \boldsymbol{\phi}(\mathbf{x})&#x3D;">
+<meta property="og:description" content="按特征查找find &#x2F; 按名字 find &#x2F; -name &quot;*py&quot; 按大小查找 find &#x2F; -size +10M (+&#x2F;-,k,M,G) 最后一天里修改过的 find &#x2F; -mtime -1 最后十分钟内修改过的 find &#x2F; -mmin -10 过去访问过的 -amin -atime 混合查找 find &#x2F; -size +10k -and -name &quot;*py&quot; 按内容查找grep &quot;def">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200530015801313.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200530022330360.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200530022412797.png">
-<meta property="og:image" content="https://cdn.mathpix.com/snip/images/vaFPTR-nf2okBcmvGT3N3ByhCiOPo2gXLPsvtLf82HA.original.fullsize.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200530033929137.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200530033929137.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200530035238375.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200530033929137.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200530040704316.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200530041706568.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200602171659402.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200602173701218.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200602174201347.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200602181423127.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200602181848141.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200602181907628.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200602183333249.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200602184214908.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200602185407711.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200602185527139.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200602190322079.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200602190337919.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200602191137351.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200602191122903.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200602191249735.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200602191214778.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200602191441673.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200602192507547.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200602192409002.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200602194326643.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200602194346081.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200602195405178.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200602202308934.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200602212856315.png">
-<meta property="article:published_time" content="2020-07-18T15:00:00.000Z">
-<meta property="article:modified_time" content="2020-07-19T01:09:27.569Z">
+<meta property="article:published_time" content="2021-05-28T13:42:29.000Z">
+<meta property="article:modified_time" content="2021-05-28T13:59:44.000Z">
 <meta property="article:author" content="Tian Weiye">
-<meta property="article:tag" content="Datamining">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="shell">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200530015801313.png">
 
 
 <link rel="icon" href="/img/avatar.png">
