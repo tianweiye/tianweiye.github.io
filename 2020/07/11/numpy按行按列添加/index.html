@@ -6,53 +6,20 @@
   <meta name="keywords" content=" numpy ">
   <meta name="description" content="numpy按行按列添加 | Twy&#39;sBlog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="16 适合的基函数模型 16.1 Introduction 14 15章中介绍了核方法（kernel methods），通过核方法可以制作非线性模型，来进行分类（classification）或和回归（regression），预测中使用 \[ f(\mathbf{x})&#x3D;\mathbf{w}^{T} \phi(\mathbf{x})\\ \boldsymbol{\phi}(\mathbf{x})&#x3D;">
+<meta name="description" content="查询文章 hexo list [type] type: page, post, route, tag, category 创建草稿 hexo new [layout] 草稿名字 使用模板创建文章 eg:hexo new template “文章名字”Hexo使用&#96;scaffolds&#x2F;template.md创建草稿 发布草稿 hexo publish 草稿名字 layout: post, page,">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Datamining数据挖掘-16章读书笔记">
-<meta property="og:url" content="http://tianweiye.github.io/2020/07/19/Datamining%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98-16%E7%AB%A0%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:title" content="hexo用法回顾">
+<meta property="og:url" content="http://tianweiye.github.io/2021/05/28/hexo%E7%94%A8%E6%B3%95%E5%9B%9E%E9%A1%BE/index.html">
 <meta property="og:site_name" content="Twy&#39;sBlog">
-<meta property="og:description" content="16 适合的基函数模型 16.1 Introduction 14 15章中介绍了核方法（kernel methods），通过核方法可以制作非线性模型，来进行分类（classification）或和回归（regression），预测中使用 \[ f(\mathbf{x})&#x3D;\mathbf{w}^{T} \phi(\mathbf{x})\\ \boldsymbol{\phi}(\mathbf{x})&#x3D;">
+<meta property="og:description" content="查询文章 hexo list [type] type: page, post, route, tag, category 创建草稿 hexo new [layout] 草稿名字 使用模板创建文章 eg:hexo new template “文章名字”Hexo使用&#96;scaffolds&#x2F;template.md创建草稿 发布草稿 hexo publish 草稿名字 layout: post, page,">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200530015801313.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200530022330360.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200530022412797.png">
-<meta property="og:image" content="https://cdn.mathpix.com/snip/images/vaFPTR-nf2okBcmvGT3N3ByhCiOPo2gXLPsvtLf82HA.original.fullsize.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200530033929137.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200530033929137.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200530035238375.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200530033929137.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200530040704316.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200530041706568.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200602171659402.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200602173701218.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200602174201347.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200602181423127.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200602181848141.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200602181907628.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200602183333249.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200602184214908.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200602185407711.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200602185527139.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200602190322079.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200602190337919.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200602191137351.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200602191122903.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200602191249735.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200602191214778.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200602191441673.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200602192507547.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200602192409002.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200602194326643.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200602194346081.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200602195405178.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200602202308934.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200602212856315.png">
-<meta property="article:published_time" content="2020-07-18T15:00:00.000Z">
-<meta property="article:modified_time" content="2020-07-19T01:09:27.569Z">
+<meta property="og:image" content="http://tianweiye.github.io/2021/05/28/hexo%E7%94%A8%E6%B3%95%E5%9B%9E%E9%A1%BE/image.png">
+<meta property="article:published_time" content="2021-05-28T13:05:44.000Z">
+<meta property="article:modified_time" content="2021-05-28T13:31:05.000Z">
 <meta property="article:author" content="Tian Weiye">
-<meta property="article:tag" content="Datamining">
+<meta property="article:tag" content="Hexo">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200530015801313.png">
+<meta name="twitter:image" content="http://tianweiye.github.io/2021/05/28/hexo%E7%94%A8%E6%B3%95%E5%9B%9E%E9%A1%BE/image.png">
 
 
 <link rel="icon" href="/img/avatar.png">
@@ -136,7 +103,7 @@
 
 
 <ul>
-    <li><div class="all active" data-rel="全部文章">全部文章<small>(92)</small></div></li>
+    <li><div class="all active" data-rel="全部文章">全部文章<small>(93)</small></div></li>
     
         
             
@@ -184,6 +151,14 @@
     
         
             
+            <li><div data-rel="其他">其他<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
             <li><div data-rel="生活日志">生活日志<small>(1)</small></div>
                 
             </li>
@@ -216,8 +191,8 @@
     </div>
     <div></div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="92">
-<input type="hidden" id="yelog_site_word_count" value="24.6k">
+<input type="hidden" id="yelog_site_posts_number" value="93">
+<input type="hidden" id="yelog_site_word_count" value="24.7k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -287,6 +262,10 @@
             </li>
         
             <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Hexo</a>
+            </li>
+        
+            <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>Latex</a>
             </li>
         
@@ -340,6 +319,14 @@
     </div>
     
     <nav id="title-list-nav">
+        
+        <a  class="全部文章 其他 "
+           href="/2021/05/28/hexo%E7%94%A8%E6%B3%95%E5%9B%9E%E9%A1%BE/"
+           data-tag="Hexo"
+           data-author="" >
+            <span class="post-title" title="hexo用法回顾">hexo用法回顾</span>
+            <span class="post-date" title="2021-05-28 22:05:44">2021/05/28</span>
+        </a>
         
         <a  class="全部文章 数据挖掘 "
            href="/2020/07/19/Datamining%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98-16%E7%AB%A0%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"
