@@ -6,21 +6,18 @@
   <meta name="keywords" content=" 通信 ">
   <meta name="description" content="代码OFDM | Twy&#39;sBlog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="直接赋值b&#x3D;a b会随着a而改变  直接赋值  浅拷贝b&#x3D;a.copy()  浅拷贝  深拷贝b&#x3D;copy.deepcopy(a) b和a完全独立  深拷贝">
+<meta name="description" content="字典类型 map 1map&lt;Keyの型, Valueの型&gt; 変数名;    操作 記法 計算量     追加 変数[key] &#x3D; value; O(logN)   削除 変数.erase(key); O(logN)   访问 変数.at(key) O(logN)   所属判定 変数.count(key) O(logN)   要素数の取得 変数.size() O(1)    栈stack">
 <meta property="og:type" content="article">
-<meta property="og:title" content="直接赋值和拷贝机制">
-<meta property="og:url" content="http://tianweiye.github.io/2021/06/05/%E7%9B%B4%E6%8E%A5%E8%B5%8B%E5%80%BC%E5%92%8C%E6%8B%B7%E8%B4%9D%E6%9C%BA%E5%88%B6/index.html">
+<meta property="og:title" content="C++容器">
+<meta property="og:url" content="http://tianweiye.github.io/2021/06/09/C-%E5%AE%B9%E5%99%A8/index.html">
 <meta property="og:site_name" content="Twy&#39;sBlog">
-<meta property="og:description" content="直接赋值b&#x3D;a b会随着a而改变  直接赋值  浅拷贝b&#x3D;a.copy()  浅拷贝  深拷贝b&#x3D;copy.deepcopy(a) b和a完全独立  深拷贝">
+<meta property="og:description" content="字典类型 map 1map&lt;Keyの型, Valueの型&gt; 変数名;    操作 記法 計算量     追加 変数[key] &#x3D; value; O(logN)   削除 変数.erase(key); O(logN)   访问 変数.at(key) O(logN)   所属判定 変数.count(key) O(logN)   要素数の取得 変数.size() O(1)    栈stack">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://tianweiye.github.io/2021/06/05/%E7%9B%B4%E6%8E%A5%E8%B5%8B%E5%80%BC%E5%92%8C%E6%8B%B7%E8%B4%9D%E6%9C%BA%E5%88%B6/1.png">
-<meta property="og:image" content="http://tianweiye.github.io/2021/06/05/%E7%9B%B4%E6%8E%A5%E8%B5%8B%E5%80%BC%E5%92%8C%E6%8B%B7%E8%B4%9D%E6%9C%BA%E5%88%B6/2.png">
-<meta property="og:image" content="http://tianweiye.github.io/2021/06/05/%E7%9B%B4%E6%8E%A5%E8%B5%8B%E5%80%BC%E5%92%8C%E6%8B%B7%E8%B4%9D%E6%9C%BA%E5%88%B6/3.png">
-<meta property="article:published_time" content="2021-06-05T10:43:56.000Z">
-<meta property="article:modified_time" content="2021-06-05T10:51:11.000Z">
+<meta property="article:published_time" content="2021-06-09T10:36:01.000Z">
+<meta property="article:modified_time" content="2021-06-09T11:07:36.000Z">
 <meta property="article:author" content="Tian Weiye">
+<meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://tianweiye.github.io/2021/06/05/%E7%9B%B4%E6%8E%A5%E8%B5%8B%E5%80%BC%E5%92%8C%E6%8B%B7%E8%B4%9D%E6%9C%BA%E5%88%B6/1.png">
 
 
 <link rel="icon" href="/img/avatar.png">
@@ -104,7 +101,7 @@
 
 
 <ul>
-    <li><div class="all active" data-rel="全部文章">全部文章<small>(97)</small></div></li>
+    <li><div class="all active" data-rel="全部文章">全部文章<small>(100)</small></div></li>
     
         
             
@@ -128,7 +125,7 @@
     
         
             
-            <li><div data-rel="机器学习">机器学习<small>(33)</small></div>
+            <li><div data-rel="机器学习">机器学习<small>(17)</small></div>
                 
             </li>
             
@@ -136,7 +133,19 @@
     
         
             
-            <li><div data-rel="笔记">笔记<small>(2)</small></div>
+        
+    
+        
+            
+            <li><div data-rel="编程语言"><i class="fold iconfont icon-right"></i>编程语言<small>(47)</small></div>
+                
+                    <ul class="sub hide">
+                        
+                        <li><div data-rel="编程语言<--->机器学习">机器学习<small>(16)</small></div>
+                            
+                        </li>
+                            
+                    </ul>
                 
             </li>
             
@@ -144,23 +153,7 @@
     
         
             
-            <li><div data-rel="其他">其他<small>(12)</small></div>
-                
-            </li>
-            
-        
-    
-        
-            
-            <li><div data-rel="生活">生活<small>(1)</small></div>
-                
-            </li>
-            
-        
-    
-        
-            
-            <li><div data-rel="python">python<small>(28)</small></div>
+            <li><div data-rel="其他">其他<small>(14)</small></div>
                 
             </li>
             
@@ -176,8 +169,8 @@
     </div>
     <div></div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="97">
-<input type="hidden" id="yelog_site_word_count" value="20k">
+<input type="hidden" id="yelog_site_posts_number" value="100">
+<input type="hidden" id="yelog_site_word_count" value="21.2k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -235,7 +228,7 @@
             </li>
         
             <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>Breaking</a>
+                <i class="iconfont icon-tag"></i><a>C++</a>
             </li>
         
             <li class="article-tag-list-item">
@@ -279,6 +272,10 @@
             </li>
         
             <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>python</a>
+            </li>
+        
+            <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>shell</a>
             </li>
         
@@ -309,25 +306,49 @@
     
     <nav id="title-list-nav">
         
-        <a  class="全部文章 python "
+        <a  class="全部文章 编程语言 "
+           href="/2021/06/09/C-%E5%AE%B9%E5%99%A8/"
+           data-tag="C++"
+           data-author="" >
+            <span class="post-title" title="C++容器">C++容器</span>
+            <span class="post-date" title="2021-06-09 19:36:01">2021/06/09</span>
+        </a>
+        
+        <a  class="全部文章 编程语言 "
+           href="/2021/06/06/C-%E6%95%B0%E7%BB%84/"
+           data-tag="C++"
+           data-author="" >
+            <span class="post-title" title="C++数组">C++数组</span>
+            <span class="post-date" title="2021-06-06 13:47:47">2021/06/06</span>
+        </a>
+        
+        <a  class="全部文章 编程语言 "
+           href="/2021/06/06/C-%E6%A8%A1%E6%9D%BFtemplate%E4%BD%BF%E7%94%A8/"
+           data-tag="C++"
+           data-author="" >
+            <span class="post-title" title="C++模板template使用">C++模板template使用</span>
+            <span class="post-date" title="2021-06-06 11:56:46">2021/06/06</span>
+        </a>
+        
+        <a  class="全部文章 编程语言 "
            href="/2021/06/05/%E7%9B%B4%E6%8E%A5%E8%B5%8B%E5%80%BC%E5%92%8C%E6%8B%B7%E8%B4%9D%E6%9C%BA%E5%88%B6/"
-           data-tag=""
+           data-tag="python"
            data-author="" >
             <span class="post-title" title="直接赋值和拷贝机制">直接赋值和拷贝机制</span>
             <span class="post-date" title="2021-06-05 19:43:56">2021/06/05</span>
         </a>
         
-        <a  class="全部文章 python "
+        <a  class="全部文章 编程语言 "
            href="/2021/05/29/ctypes%E8%B0%83%E7%94%A8C%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5%E5%BA%93/"
-           data-tag=""
+           data-tag="python"
            data-author="" >
             <span class="post-title" title="ctypes调用C动态链接库">ctypes调用C动态链接库</span>
             <span class="post-date" title="2021-05-29 12:39:20">2021/05/29</span>
         </a>
         
-        <a  class="全部文章 python "
+        <a  class="全部文章 编程语言 "
            href="/2021/05/29/sys%E6%A0%87%E5%87%86%E8%BE%93%E5%85%A5%E5%A7%BF%E5%8A%BF/"
-           data-tag=""
+           data-tag="python"
            data-author="" >
             <span class="post-title" title="sys标准输入姿势">sys标准输入姿势</span>
             <span class="post-date" title="2021-05-29 11:29:32">2021/05/29</span>
@@ -501,17 +522,17 @@
             <span class="post-date" title="2020-07-18 00:00:00">2020/07/18</span>
         </a>
         
-        <a  class="全部文章 python "
+        <a  class="全部文章 编程语言 "
            href="/2020/07/18/bottle%E6%A8%A1%E7%89%88%E4%B8%AD%E5%B5%8C%E5%85%A5py%E4%BB%A3%E7%A0%81/"
-           data-tag="bottle"
+           data-tag="bottle,python"
            data-author="" >
             <span class="post-title" title="bottle模版中嵌入py代码">bottle模版中嵌入py代码</span>
             <span class="post-date" title="2020-07-18 00:00:00">2020/07/18</span>
         </a>
         
-        <a  class="全部文章 python "
+        <a  class="全部文章 编程语言 "
            href="/2020/07/18/bottle%E6%A8%A1%E7%89%88%E5%8F%82%E6%95%B0%E5%AE%9A%E4%B9%89/"
-           data-tag="bottle"
+           data-tag="bottle,python"
            data-author="" >
             <span class="post-title" title="bottle模版参数定义">bottle模版参数定义</span>
             <span class="post-date" title="2020-07-18 00:00:00">2020/07/18</span>
@@ -525,145 +546,145 @@
             <span class="post-date" title="2020-07-17 00:00:00">2020/07/17</span>
         </a>
         
-        <a  class="全部文章 python "
+        <a  class="全部文章 编程语言 "
            href="/2020/07/17/bottleGET%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86/"
-           data-tag="bottle"
+           data-tag="bottle,python"
            data-author="" >
             <span class="post-title" title="bottleGET的基本原理">bottleGET的基本原理</span>
             <span class="post-date" title="2020-07-17 00:00:00">2020/07/17</span>
         </a>
         
-        <a  class="全部文章 python "
+        <a  class="全部文章 编程语言 "
            href="/2020/07/17/bottle%E4%BD%BF%E7%94%A8%E6%A8%A1%E7%89%88%E6%96%87%E4%BB%B6%E4%BC%A0%E9%80%92%E5%8F%82%E6%95%B0/"
-           data-tag="bottle"
+           data-tag="bottle,python"
            data-author="" >
             <span class="post-title" title="bottle使用模版文件传递参数">bottle使用模版文件传递参数</span>
             <span class="post-date" title="2020-07-17 00:00:00">2020/07/17</span>
         </a>
         
-        <a  class="全部文章 python "
+        <a  class="全部文章 编程语言 "
            href="/2020/07/17/bottle%E4%BF%AE%E6%94%B9%E5%90%8E%E8%87%AA%E5%8A%A8%E9%80%82%E7%94%A8/"
-           data-tag="bottle"
+           data-tag="bottle,python"
            data-author="" >
             <span class="post-title" title="bottle修改后自动适用">bottle修改后自动适用</span>
             <span class="post-date" title="2020-07-17 00:00:00">2020/07/17</span>
         </a>
         
-        <a  class="全部文章 python "
+        <a  class="全部文章 编程语言 "
            href="/2020/07/17/bottle%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1/"
-           data-tag="bottle"
+           data-tag="bottle,python"
            data-author="" >
             <span class="post-title" title="bottle动态路由">bottle动态路由</span>
             <span class="post-date" title="2020-07-17 00:00:00">2020/07/17</span>
         </a>
         
-        <a  class="全部文章 python "
+        <a  class="全部文章 编程语言 "
            href="/2020/07/17/bottle%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/"
-           data-tag="bottle"
+           data-tag="bottle,python"
            data-author="" >
             <span class="post-title" title="bottle动态路由类型转换">bottle动态路由类型转换</span>
             <span class="post-date" title="2020-07-17 00:00:00">2020/07/17</span>
         </a>
         
-        <a  class="全部文章 python "
+        <a  class="全部文章 编程语言 "
            href="/2020/07/17/bottle%E5%AE%9E%E7%8E%B0%E5%A4%9A%E4%B8%AA%E9%A1%B5%E9%9D%A2/"
-           data-tag="bottle"
+           data-tag="bottle,python"
            data-author="" >
             <span class="post-title" title="bottle实现多个页面">bottle实现多个页面</span>
             <span class="post-date" title="2020-07-17 00:00:00">2020/07/17</span>
         </a>
         
-        <a  class="全部文章 python "
+        <a  class="全部文章 编程语言 "
            href="/2020/07/17/bottle%E5%BC%BA%E5%88%B6%E4%B8%8B%E8%BD%BD/"
-           data-tag="bottle"
+           data-tag="bottle,python"
            data-author="" >
             <span class="post-title" title="bottle强制下载">bottle强制下载</span>
             <span class="post-date" title="2020-07-17 00:00:00">2020/07/17</span>
         </a>
         
-        <a  class="全部文章 python "
+        <a  class="全部文章 编程语言 "
            href="/2020/07/17/bottle%E6%A8%A1%E6%9D%BF%E5%B5%8C%E5%A5%97/"
-           data-tag="bottle"
+           data-tag="bottle,python"
            data-author="" >
             <span class="post-title" title="bottle模板嵌套">bottle模板嵌套</span>
             <span class="post-date" title="2020-07-17 00:00:00">2020/07/17</span>
         </a>
         
-        <a  class="全部文章 python "
+        <a  class="全部文章 编程语言 "
            href="/2020/07/17/bottle%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D/"
-           data-tag="bottle"
+           data-tag="bottle,python"
            data-author="" >
             <span class="post-title" title="bottle正则表达式匹配">bottle正则表达式匹配</span>
             <span class="post-date" title="2020-07-17 00:00:00">2020/07/17</span>
         </a>
         
-        <a  class="全部文章 python "
+        <a  class="全部文章 编程语言 "
            href="/2020/07/17/bottle%E7%94%A8http%E9%BB%98%E8%AE%A4%E7%AB%AF%E5%8F%A3/"
-           data-tag="bottle"
+           data-tag="bottle,python"
            data-author="" >
             <span class="post-title" title="bottle用http默认端口">bottle用http默认端口</span>
             <span class="post-date" title="2020-07-17 00:00:00">2020/07/17</span>
         </a>
         
-        <a  class="全部文章 python "
+        <a  class="全部文章 编程语言 "
            href="/2020/07/17/bottle%E7%AC%AC%E4%B8%80%E7%A7%8D%E6%A1%86%E6%9E%B6/"
-           data-tag="bottle"
+           data-tag="bottle,python"
            data-author="" >
             <span class="post-title" title="bottle第一种框架">bottle第一种框架</span>
             <span class="post-date" title="2020-07-17 00:00:00">2020/07/17</span>
         </a>
         
-        <a  class="全部文章 python "
+        <a  class="全部文章 编程语言 "
            href="/2020/07/17/bottle%E7%AC%AC%E4%BA%8C%E7%A7%8D%E6%A1%86%E6%9E%B6/"
-           data-tag="bottle"
+           data-tag="bottle,python"
            data-author="" >
             <span class="post-title" title="bottle第二种框架">bottle第二种框架</span>
             <span class="post-date" title="2020-07-17 00:00:00">2020/07/17</span>
         </a>
         
-        <a  class="全部文章 python "
+        <a  class="全部文章 编程语言 "
            href="/2020/07/17/bottle%E7%BD%91%E9%A1%B5%E9%87%8D%E5%AE%9A%E5%90%91/"
-           data-tag="bottle"
+           data-tag="bottle,python"
            data-author="" >
             <span class="post-title" title="bottle网页重定向">bottle网页重定向</span>
             <span class="post-date" title="2020-07-17 00:00:00">2020/07/17</span>
         </a>
         
-        <a  class="全部文章 python "
+        <a  class="全部文章 编程语言 "
            href="/2020/07/17/bottle%E8%87%AA%E5%AE%9A%E4%B9%89%E8%BF%87%E6%BB%A4%E5%99%A8/"
-           data-tag="bottle"
+           data-tag="bottle,python"
            data-author="" >
             <span class="post-title" title="bottle自定义过滤器">bottle自定义过滤器</span>
             <span class="post-date" title="2020-07-17 00:00:00">2020/07/17</span>
         </a>
         
-        <a  class="全部文章 python "
+        <a  class="全部文章 编程语言 "
            href="/2020/07/17/bottle%E8%BF%94%E5%9B%9E404/"
-           data-tag="bottle"
+           data-tag="bottle,python"
            data-author="" >
             <span class="post-title" title="bottle返回404">bottle返回404</span>
             <span class="post-date" title="2020-07-17 00:00:00">2020/07/17</span>
         </a>
         
-        <a  class="全部文章 python "
+        <a  class="全部文章 编程语言 "
            href="/2020/07/17/bottle%E9%80%9A%E8%BF%87request.body%E8%8E%B7%E5%8F%96%E7%94%A8%E6%88%B7%E8%BE%93%E5%85%A5/"
-           data-tag="bottle"
+           data-tag="bottle,python"
            data-author="" >
             <span class="post-title" title="bottle通过request.body获取用户输入">bottle通过request.body获取用户输入</span>
             <span class="post-date" title="2020-07-17 00:00:00">2020/07/17</span>
         </a>
         
-        <a  class="全部文章 python "
+        <a  class="全部文章 编程语言 "
            href="/2020/07/17/bottle%E9%80%9A%E8%BF%87url%E8%8E%B7%E5%8F%96%E7%94%A8%E6%88%B7%E8%BE%93%E5%85%A5/"
-           data-tag="bottle"
+           data-tag="bottle,python"
            data-author="" >
             <span class="post-title" title="bottle通过url获取用户输入">bottle通过url获取用户输入</span>
             <span class="post-date" title="2020-07-17 00:00:00">2020/07/17</span>
         </a>
         
-        <a  class="全部文章 python "
+        <a  class="全部文章 编程语言 "
            href="/2020/07/17/bottle%E9%9D%99%E6%80%81%E5%9B%BE%E7%89%87%E6%96%87%E4%BB%B6/"
-           data-tag="bottle"
+           data-tag="bottle,python"
            data-author="" >
             <span class="post-title" title="bottle静态图片文件">bottle静态图片文件</span>
             <span class="post-date" title="2020-07-17 00:00:00">2020/07/17</span>
@@ -781,55 +802,55 @@
             <span class="post-date" title="2020-07-17 00:00:00">2020/07/17</span>
         </a>
         
-        <a  class="全部文章 python "
+        <a  class="全部文章 编程语言 "
            href="/2020/07/14/numpy%E7%94%9F%E6%88%90Onehot/"
-           data-tag="numpy"
+           data-tag="numpy,python"
            data-author="" >
             <span class="post-title" title="numpy生成Onehot">numpy生成Onehot</span>
             <span class="post-date" title="2020-07-14 00:00:00">2020/07/14</span>
         </a>
         
-        <a  class="全部文章 机器学习 "
+        <a  class="全部文章 编程语言 机器学习 "
            href="/2020/07/14/tensorflow2.X%E6%B1%82%E5%90%84%E9%A1%B9%E4%B9%98%E7%A7%AF/"
-           data-tag="tensorflow"
+           data-tag="tensorflow,python"
            data-author="" >
             <span class="post-title" title="tensorflow2.X求各项乘积">tensorflow2.X求各项乘积</span>
             <span class="post-date" title="2020-07-14 00:00:00">2020/07/14</span>
         </a>
         
-        <a  class="全部文章 机器学习 "
+        <a  class="全部文章 编程语言 机器学习 "
            href="/2020/07/14/tensorflow2.X%E8%BD%AC%E6%8D%A2Onehot/"
-           data-tag="tensorflow"
+           data-tag="tensorflow,python"
            data-author="" >
             <span class="post-title" title="tensorflow2.X转换Onehot">tensorflow2.X转换Onehot</span>
             <span class="post-date" title="2020-07-14 00:00:00">2020/07/14</span>
         </a>
         
-        <a  class="全部文章 机器学习 "
+        <a  class="全部文章 编程语言 机器学习 "
            href="/2020/07/14/tensorflow%E6%8E%A5%E5%8F%97%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%8F%82%E6%95%B0/"
-           data-tag="tensorflow"
+           data-tag="tensorflow,python"
            data-author="" >
             <span class="post-title" title="tensorflow接受命令行参数">tensorflow接受命令行参数</span>
             <span class="post-date" title="2020-07-14 00:00:00">2020/07/14</span>
         </a>
         
-        <a  class="全部文章 机器学习 "
+        <a  class="全部文章 编程语言 机器学习 "
            href="/2020/07/14/tensorflow%E7%BB%93%E6%9E%9C%E5%8F%AF%E8%A7%86%E5%8C%96tensorboard/"
-           data-tag="tensorflow"
+           data-tag="tensorflow,python"
            data-author="" >
             <span class="post-title" title="tensorflow结果可视化tensorboard">tensorflow结果可视化tensorboard</span>
             <span class="post-date" title="2020-07-14 00:00:00">2020/07/14</span>
         </a>
         
-        <a  class="全部文章 python "
+        <a  class="全部文章 编程语言 "
            href="/2020/07/13/numpy%E7%AD%89%E9%97%B4%E8%B7%9D%E5%90%91%E9%87%8F/"
-           data-tag="numpy"
+           data-tag="numpy,python"
            data-author="" >
             <span class="post-title" title="numpy等间距向量">numpy等间距向量</span>
             <span class="post-date" title="2020-07-13 00:00:00">2020/07/13</span>
         </a>
         
-        <a  class="全部文章 笔记 "
+        <a  class="全部文章 其他 "
            href="/2020/07/13/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E5%92%8C%E5%AE%89%E5%85%A8%E6%80%A7/"
            data-tag="计算机组成原理"
            data-author="" >
@@ -837,33 +858,33 @@
             <span class="post-date" title="2020-07-13 00:00:00">2020/07/13</span>
         </a>
         
-        <a  class="全部文章 python "
+        <a  class="全部文章 编程语言 "
            href="/2020/07/11/numpy%E6%8C%89%E8%A1%8C%E6%8C%89%E5%88%97%E6%B7%BB%E5%8A%A0/"
-           data-tag="numpy"
+           data-tag="numpy,python"
            data-author="" >
             <span class="post-title" title="numpy按行按列添加">numpy按行按列添加</span>
             <span class="post-date" title="2020-07-11 00:00:00">2020/07/11</span>
         </a>
         
-        <a  class="全部文章 机器学习 "
+        <a  class="全部文章 编程语言 机器学习 "
            href="/2020/07/11/tensorflow1.X%E5%8F%AF%E8%A7%86%E5%8C%96%E5%9B%BEtensorboard/"
-           data-tag="tensorflow"
+           data-tag="tensorflow,python"
            data-author="" >
             <span class="post-title" title="tensorflow1.X可视化图tensorboard">tensorflow1.X可视化图tensorboard</span>
             <span class="post-date" title="2020-07-11 00:00:00">2020/07/11</span>
         </a>
         
-        <a  class="全部文章 机器学习 "
+        <a  class="全部文章 编程语言 机器学习 "
            href="/2020/07/11/tensorflow2.X%E7%9B%91%E5%90%AC/"
-           data-tag="tensorflow"
+           data-tag="tensorflow,python"
            data-author="" >
             <span class="post-title" title="tensorflow2.X监听">tensorflow2.X监听</span>
             <span class="post-date" title="2020-07-11 00:00:00">2020/07/11</span>
         </a>
         
-        <a  class="全部文章 机器学习 "
+        <a  class="全部文章 编程语言 机器学习 "
            href="/2020/07/06/tensorflow1.X%E5%8F%82%E6%95%B0%E7%A9%BA%E9%97%B4%E5%8F%98%E9%87%8F%E5%BC%95%E7%94%A8/"
-           data-tag="tensorflow"
+           data-tag="tensorflow,python"
            data-author="" >
             <span class="post-title" title="tensorflow1.X参数空间变量引用">tensorflow1.X参数空间变量引用</span>
             <span class="post-date" title="2020-07-06 00:00:00">2020/07/06</span>
@@ -893,103 +914,103 @@
             <span class="post-date" title="2020-07-05 00:00:00">2020/07/05</span>
         </a>
         
-        <a  class="全部文章 机器学习 "
+        <a  class="全部文章 编程语言 机器学习 "
            href="/2020/07/05/tensorflow1.X%E4%BC%9A%E8%AF%9D%E6%B1%82%E5%80%BC/"
-           data-tag="tensorflow"
+           data-tag="tensorflow,python"
            data-author="" >
             <span class="post-title" title="tensorflow1.X会话求值">tensorflow1.X会话求值</span>
             <span class="post-date" title="2020-07-05 00:00:00">2020/07/05</span>
         </a>
         
-        <a  class="全部文章 机器学习 "
+        <a  class="全部文章 编程语言 机器学习 "
            href="/2020/07/05/tensorflow1.X%E5%9B%BA%E5%AE%9A%E5%90%8D%E5%AD%97%E5%8F%98%E9%87%8F/"
-           data-tag="tensorflow"
+           data-tag="tensorflow,python"
            data-author="" >
             <span class="post-title" title="tensorflow1.X固定名字变量">tensorflow1.X固定名字变量</span>
             <span class="post-date" title="2020-07-05 00:00:00">2020/07/05</span>
         </a>
         
-        <a  class="全部文章 机器学习 "
+        <a  class="全部文章 编程语言 机器学习 "
            href="/2020/07/05/tensorflow1.X%E5%B8%B8%E9%87%8F/"
-           data-tag="tensorflow"
+           data-tag="tensorflow,python"
            data-author="" >
             <span class="post-title" title="tensorflow1.X常量">tensorflow1.X常量</span>
             <span class="post-date" title="2020-07-05 00:00:00">2020/07/05</span>
         </a>
         
-        <a  class="全部文章 机器学习 "
+        <a  class="全部文章 编程语言 机器学习 "
            href="/2020/07/05/tensorflow1.X%E7%9F%A9%E9%98%B5%E7%BB%B4%E6%95%B0/"
-           data-tag="tensorflow"
+           data-tag="tensorflow,python"
            data-author="" >
             <span class="post-title" title="tensorflow1.X矩阵维数">tensorflow1.X矩阵维数</span>
             <span class="post-date" title="2020-07-05 00:00:00">2020/07/05</span>
         </a>
         
-        <a  class="全部文章 机器学习 "
+        <a  class="全部文章 编程语言 机器学习 "
            href="/2020/07/05/tensorflow1.X%E8%87%AA%E9%80%82%E5%90%8D%E5%AD%97%E5%8F%98%E9%87%8F/"
-           data-tag="tensorflow"
+           data-tag="tensorflow,python"
            data-author="" >
             <span class="post-title" title="tensorflow1.X自适名字变量">tensorflow1.X自适名字变量</span>
             <span class="post-date" title="2020-07-05 00:00:00">2020/07/05</span>
         </a>
         
-        <a  class="全部文章 python "
+        <a  class="全部文章 编程语言 "
            href="/2020/07/04/numpy%E7%94%9F%E6%88%90%E5%9D%87%E5%8C%80%E5%88%86%E5%B8%83/"
-           data-tag="numpy"
+           data-tag="numpy,python"
            data-author="" >
             <span class="post-title" title="numpy生成均匀分布">numpy生成均匀分布</span>
             <span class="post-date" title="2020-07-04 00:00:00">2020/07/04</span>
         </a>
         
-        <a  class="全部文章 python "
+        <a  class="全部文章 编程语言 "
            href="/2020/07/04/numpy%E8%AF%BB%E5%8F%96CSV/"
-           data-tag="numpy"
+           data-tag="numpy,python"
            data-author="" >
             <span class="post-title" title="numpy读取CSV">numpy读取CSV</span>
             <span class="post-date" title="2020-07-04 00:00:00">2020/07/04</span>
         </a>
         
-        <a  class="全部文章 机器学习 "
+        <a  class="全部文章 编程语言 机器学习 "
            href="/2020/07/04/tensorflow1.X%E5%8A%A0%E5%81%8F%E7%BD%AE/"
-           data-tag="tensorflow"
+           data-tag="tensorflow,python"
            data-author="" >
             <span class="post-title" title="tensorflow1.X加偏置">tensorflow1.X加偏置</span>
             <span class="post-date" title="2020-07-04 00:00:00">2020/07/04</span>
         </a>
         
-        <a  class="全部文章 机器学习 "
+        <a  class="全部文章 编程语言 机器学习 "
            href="/2020/07/04/tensorflow1.X%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4%E5%86%85%E5%88%9B%E5%BB%BA%E5%8F%98%E9%87%8F/"
-           data-tag="tensorflow"
+           data-tag="tensorflow,python"
            data-author="" >
             <span class="post-title" title="tensorflow1.X命名空间内创建变量">tensorflow1.X命名空间内创建变量</span>
             <span class="post-date" title="2020-07-04 00:00:00">2020/07/04</span>
         </a>
         
-        <a  class="全部文章 机器学习 "
+        <a  class="全部文章 编程语言 机器学习 "
            href="/2020/07/04/tensorflow1.X%E6%94%B9%E5%8F%98%E7%BB%93%E7%82%B9%E5%80%BC/"
-           data-tag="tensorflow"
+           data-tag="tensorflow,python"
            data-author="" >
             <span class="post-title" title="tensorflow1.X改变结点值">tensorflow1.X改变结点值</span>
             <span class="post-date" title="2020-07-04 00:00:00">2020/07/04</span>
         </a>
         
-        <a  class="全部文章 机器学习 "
+        <a  class="全部文章 编程语言 机器学习 "
            href="/2020/07/04/tensorflow1.X%E9%98%9F%E5%88%97/"
-           data-tag="tensorflow"
+           data-tag="tensorflow,python"
            data-author="" >
             <span class="post-title" title="tensorflow1.X队列">tensorflow1.X队列</span>
             <span class="post-date" title="2020-07-04 00:00:00">2020/07/04</span>
         </a>
         
-        <a  class="全部文章 生活 "
+        <a  class="全部文章 "
            href="/2019/11/27/Breaking%E5%8A%A8%E4%BD%9C%E4%BA%91%E9%9B%86/"
-           data-tag="Breaking"
+           data-tag=""
            data-author="" >
             <span class="post-title" title="Breaking动作云集">Breaking动作云集</span>
             <span class="post-date" title="2019-11-27 03:28:49">2019/11/27</span>
         </a>
         
-        <a  class="全部文章 笔记 "
+        <a  class="全部文章 其他 "
            href="/2019/11/12/%E4%BB%A3%E7%A0%81OFDM/"
            data-tag="通信"
            data-author="" >
@@ -1114,7 +1135,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="笔记">笔记</a>
+            <a  data-rel="其他">其他</a>
             
         </span>
         
@@ -1129,7 +1150,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2021-05-28 23:07:55'>2019-11-12 02:55</time>
+            发布时间 : <time class="date" title='最后更新: 2021-06-06 13:11:50'>2019-11-12 02:55</time>
         
     </div>
     <div class="article-meta">
