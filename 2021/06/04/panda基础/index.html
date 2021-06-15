@@ -2,9 +2,9 @@
 <html>
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-  <title>tensorflow2.X求各项乘积 | Twy&#39;sBlog</title>
-  <meta name="keywords" content=" tensorflow , python ">
-  <meta name="description" content="tensorflow2.X求各项乘积 | Twy&#39;sBlog">
+  <title>panda基础 | Twy&#39;sBlog</title>
+  <meta name="keywords" content=" C++ ">
+  <meta name="description" content="panda基础 | Twy&#39;sBlog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="字典类型 map 1map&lt;Keyの型, Valueの型&gt; 変数名;    操作 記法 計算量     追加 変数[key] &#x3D; value; O(logN)   削除 変数.erase(key); O(logN)   访问 変数.at(key) O(logN)   所属判定 変数.count(key) O(logN)   要素数の取得 変数.size() O(1)    栈stack">
 <meta property="og:type" content="article">
@@ -1131,9 +1131,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-tensorflow2.X求各项乘积" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-panda基础" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">tensorflow2.X求各项乘积</h1>
+        <h1 class="article-title">panda基础</h1>
     
     <div class="article-meta">
         
@@ -1143,9 +1143,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="编程语言">编程语言</a> > 
-            
-            <a  data-rel="编程语言&lt;---&gt;机器学习">机器学习</a>
+            <a  data-rel="编程语言">编程语言</a>
             
         </span>
         
@@ -1153,21 +1151,19 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
-            <a class="color1">tensorflow</a>
-            
-            <a class="color2">python</a>
+            <a class="color4">C++</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2021-06-06 13:08:24'>2020-07-14 00:00</time>
+            发布时间 : <time class="date" title='最后更新: 2021-06-15 21:16:02'>2021-06-04 15:12</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:53</span>
+        <span>字数:168</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -1186,7 +1182,7 @@
     
     <div class="toc-ref">
     
-        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#加载文件-pd.read_csvsep"><span class="toc-text">加载文件 pd.read_csv(&#39;&#39;,sep&#x3D;&#39;,&#39;)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#表格尺寸-pd.shape"><span class="toc-text">表格尺寸 pd.shape</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#按列名访问表pdcname"><span class="toc-text">按列名访问表pd[&#39;cname&#39;]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#按index访问表-df.loc2"><span class="toc-text">按index访问表 df.loc[2]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#按块访问表df.iloc12"><span class="toc-text">按块访问表df.iloc[[1,2],:]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#匹配访问表df.queryname-twy"><span class="toc-text">匹配访问表df.query(&#39;name &#x3D;&#x3D; &quot;twy&quot;&#39;)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#信息类型df.info"><span class="toc-text">信息类型df.info()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#删除信息df.dropcolumnsid"><span class="toc-text">删除信息df.drop(columns&#x3D;[&#39;id&#39;])</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#缺失值df.isnull"><span class="toc-text">缺失值df.isnull()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#删除缺失值df.dropna"><span class="toc-text">删除缺失值df.dropna()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#填补缺失值df.fillna0"><span class="toc-text">填补缺失值df.fillna(0)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dumy化df-pd.get_dummiesdf"><span class="toc-text">dumy化df &#x3D; pd.get_dummies(df)</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -1202,7 +1198,28 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">a_l   = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line">a_np  = np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>])</span><br><span class="line">a_tf  = tf.constant([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>])</span><br><span class="line"></span><br><span class="line">b_l  = tf.reduce_prod(a_l)</span><br><span class="line">b_np = tf.reduce_prod(a_np)</span><br><span class="line">b_tf = tf.reduce_prod(a_tf)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">sess=tf.Session()</span><br><span class="line">sess.run(tf.global_variables_initializer())</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">print(sess.run([b_l,b_np,b_tf]))</span><br><span class="line"></span><br><span class="line"><span class="comment">#[24, 24, 24]</span></span><br></pre></td></tr></table></figure>
+        <h2 id="加载文件-pd.read_csvsep">加载文件 <code>pd.read_csv('',sep=',')</code></h2>
+<p>打开<code>*.csv</code>文件分隔符默认为 逗号<code>,</code></p>
+<p>打开<code>tsv</code>文件需要设置为 制表符<code>\t</code></p>
+<h2 id="表格尺寸-pd.shape">表格尺寸 <code>pd.shape</code></h2>
+<h2 id="按列名访问表pdcname">按列名<strong>访问表</strong><code>pd['cname']</code></h2>
+<p>指定列名</p>
+<h2 id="按index访问表-df.loc2">按index<strong>访问表</strong> <code>df.loc[2]</code></h2>
+<p>指定index</p>
+<h2 id="按块访问表df.iloc12">按块访问表<code>df.iloc[[1,2],:]</code></h2>
+<p>指定行,列</p>
+<h2 id="匹配访问表df.queryname-twy">匹配访问表<code>df.query('name == "twy"')</code></h2>
+<p>描述eg:<code>name ==  "twy" and age &lt; 30</code></p>
+<h2 id="信息类型df.info">信息类型<code>df.info()</code></h2>
+<h2 id="删除信息df.dropcolumnsid">删除信息<code>df.drop(columns=['id'])</code></h2>
+<h2 id="缺失值df.isnull">缺失值<code>df.isnull()</code></h2>
+<p>返回True活着False 用 <code>.sum()</code>计算列中所有缺失值个数</p>
+<h2 id="删除缺失值df.dropna">删除缺失值<code>df.dropna()</code></h2>
+<p>直接替换<code>inplace=True</code></p>
+<p>返回新的表<code>inplace=False</code></p>
+<h2 id="填补缺失值df.fillna0">填补缺失值<code>df.fillna(0)</code></h2>
+<p>用0填充</p>
+<h2 id="dumy化df-pd.get_dummiesdf">dumy化<code>df = pd.get_dummies(df)</code></h2>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源 https://tianweiye.github.io </span>
