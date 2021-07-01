@@ -6,18 +6,22 @@
   <meta name="keywords" content="">
   <meta name="description" content="anaconda安装tensorflow-gpu | Twy&#39;sBlog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="字典类型 map 1map&lt;Keyの型, Valueの型&gt; 変数名;    操作 記法 計算量     追加 変数[key] &#x3D; value; O(logN)   削除 変数.erase(key); O(logN)   访问 変数.at(key) O(logN)   所属判定 変数.count(key) O(logN)   要素数の取得 変数.size() O(1)    栈stack">
+<meta name="description" content="创建python环境: conda create -n tf25 python&#x3D;3.8 进入python环境: conda activate tf25 安装tensorflow2.5 pip install tensotflow-gpu&#x3D;&#x3D;2.5 使用ConvLSTM3D这个类,需要在tf2.5基础上安装以下模块 pip install tf-nightly-gpu&#x3D;&#x3D;2.7.0.dev20210">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C++容器">
-<meta property="og:url" content="http://tianweiye.github.io/2021/06/09/C-%E5%AE%B9%E5%99%A8/index.html">
+<meta property="og:title" content="anaconda安装tensorflow-gpu">
+<meta property="og:url" content="http://tianweiye.github.io/2021/07/01/anaconda%E5%AE%89%E8%A3%85tensorflow-gpu/index.html">
 <meta property="og:site_name" content="Twy&#39;sBlog">
-<meta property="og:description" content="字典类型 map 1map&lt;Keyの型, Valueの型&gt; 変数名;    操作 記法 計算量     追加 変数[key] &#x3D; value; O(logN)   削除 変数.erase(key); O(logN)   访问 変数.at(key) O(logN)   所属判定 変数.count(key) O(logN)   要素数の取得 変数.size() O(1)    栈stack">
+<meta property="og:description" content="创建python环境: conda create -n tf25 python&#x3D;3.8 进入python环境: conda activate tf25 安装tensorflow2.5 pip install tensotflow-gpu&#x3D;&#x3D;2.5 使用ConvLSTM3D这个类,需要在tf2.5基础上安装以下模块 pip install tf-nightly-gpu&#x3D;&#x3D;2.7.0.dev20210">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-06-09T10:36:01.000Z">
-<meta property="article:modified_time" content="2021-06-09T11:07:36.000Z">
+<meta property="og:image" content="http://tianweiye.github.io/2021/07/01/anaconda%E5%AE%89%E8%A3%85tensorflow-gpu/image-20210701204752100.png">
+<meta property="og:image" content="http://tianweiye.github.io/2021/07/01/anaconda%E5%AE%89%E8%A3%85tensorflow-gpu/image-20210701224345306.png">
+<meta property="og:image" content="http://tianweiye.github.io/2021/07/01/anaconda%E5%AE%89%E8%A3%85tensorflow-gpu/image-20210701224849372.png">
+<meta property="og:image" content="http://tianweiye.github.io/2021/07/01/anaconda%E5%AE%89%E8%A3%85tensorflow-gpu/image-20210701225606901.png">
+<meta property="article:published_time" content="2021-07-01T11:32:07.000Z">
+<meta property="article:modified_time" content="2021-07-01T14:16:56.000Z">
 <meta property="article:author" content="Tian Weiye">
-<meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://tianweiye.github.io/2021/07/01/anaconda%E5%AE%89%E8%A3%85tensorflow-gpu/image-20210701204752100.png">
 
 
 <link rel="icon" href="/img/avatar.png">
@@ -1167,12 +1171,12 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2021-07-01 23:14:32'>2021-07-01 20:32</time>
+            发布时间 : <time class="date" title='最后更新: 2021-07-01 23:16:56'>2021-07-01 20:32</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:116</span>
+        <span>字数:108</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -1216,22 +1220,14 @@
 <p>使用ConvLSTM3D这个类,需要在tf2.5基础上安装以下模块</p>
 <p><code>pip install tf-nightly-gpu==2.7.0.dev20210630</code></p>
 <h2 id="查看cuda版本">查看CUDA版本</h2>
-<figure>
-<img src="image-20210701204752100.png" alt="" /><figcaption>image-20210701204752100</figcaption>
-</figure>
+<p><img src="image-20210701204752100.png" /></p>
 <h2 id="将nvcc目录添加到path和tf无关">将nvcc目录添加到PATH(和tf无关)</h2>
 <p><code>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.4\bin</code></p>
-<figure>
-<img src="image-20210701224345306.png" alt="" /><figcaption>image-20210701224345306</figcaption>
-</figure>
-<figure>
-<img src="image-20210701224849372.png" alt="" /><figcaption>image-20210701224849372</figcaption>
-</figure>
+<p><img src="image-20210701224345306.png" /></p>
+<p><img src="image-20210701224849372.png" /></p>
 <h2 id="cudnn安装">cuDNN安装</h2>
 <p>下载后解压并将对应文件复制到cuda文件夹里</p>
-<figure>
-<img src="image-20210701225606901.png" alt="" /><figcaption>image-20210701225606901</figcaption>
-</figure>
+<p><img src="image-20210701225606901.png" /></p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源 https://tianweiye.github.io </span>
