@@ -2,9 +2,9 @@
 <html>
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-  <title>Datamining数据挖掘-集成分类器2 | Twy&#39;sBlog</title>
-  <meta name="keywords" content=" Datamining ">
-  <meta name="description" content="Datamining数据挖掘-集成分类器2 | Twy&#39;sBlog">
+  <title>压缩文件 | Twy&#39;sBlog</title>
+  <meta name="keywords" content=" -python ">
+  <meta name="description" content="压缩文件 | Twy&#39;sBlog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="创建python环境: conda create -n tf25 python&#x3D;3.8 进入python环境: conda activate tf25 安装tensorflow2.5 pip install tensotflow-gpu&#x3D;&#x3D;2.5 使用ConvLSTM3D这个类,需要在tf2.5基础上安装以下模块 pip install tf-nightly-gpu&#x3D;&#x3D;2.7.0.dev20210">
 <meta property="og:type" content="article">
@@ -1163,9 +1163,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-Datamining数据挖掘-集成分类器2" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-压缩文件" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Datamining数据挖掘-集成分类器2</h1>
+        <h1 class="article-title">压缩文件</h1>
     
     <div class="article-meta">
         
@@ -1175,7 +1175,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="机器学习">机器学习</a>
+            <a  data-rel="编程语言">编程语言</a>
             
         </span>
         
@@ -1183,19 +1183,19 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
-            <a class="color1">Datamining</a>
+            <a class="color3">-python</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2021-05-28 23:14:10'>2020-07-19 00:00</time>
+            发布时间 : <time class="date" title='最后更新: 2021-07-06 21:49:17'>2021-07-06 21:40</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:939</span>
+        <span>字数:47</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -1214,7 +1214,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#集成分类器"><span class="toc-text">集成分类器</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#直接加载zip里的文件zipfile.zip.read"><span class="toc-text">直接加载zip里的文件ZipFile(‘*.zip’).read(&#39;*&#39;)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看压缩包目录prindirnamelist"><span class="toc-text">查看压缩包目录prindir(),namelist()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#匹配当前目录下文件glob.glob.py"><span class="toc-text">匹配当前目录下文件glob.glob(&#39;*.py&#39;)</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -1230,57 +1230,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <blockquote>
-<p><a href="https://www.bilibili.com/video/BV154411Q7mG?p=54" target="_blank" rel="noopener">清华大学-数据挖掘-2.1 Boosting</a> <a href="https://www.bilibili.com/video/BV154411Q7mG?p=55" target="_blank" rel="noopener">清华大学-数据挖掘-3.1 AdaBoost</a> <a href="https://www.bilibili.com/video/BV154411Q7mG?p=56" target="_blank" rel="noopener">清华大学-数据挖掘-4.1 RegionBoost</a></p>
-</blockquote>
-<h2 id="集成分类器">集成分类器</h2>
-<p>==Boosting算法== 和bagging的区别是：Bossting是串行的。 eg： 用分类器：D1，D2（学习D1分错的），D3（学习D1D2不一样的） O1O2一致直接输出，O1O2不一致输出O3 <strong>Step1</strong> 从原来的数据集合D中用Bootstrap挑一个D1 <strong>Step2</strong> 用D1训练一个分类器C1 <strong>Step3</strong> 用数据集D来测试C1，分对的和分错的打标签作为D2 <strong>Step4</strong> 用D2训练一个分类器C2 <strong>Step5</strong> 用D来测试C1和C2，把C1和C2输出中不一致的部分打标签作为D3 <strong>Step6</strong> 用D3 训练一个分类器C3 <strong>Step7</strong> 测试：输入x， O1O2一致则直接输出，O1O2不一致则输出O3</p>
-<p><img src="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200603014622826.png" alt="image-20200603014622826" style="zoom: 33%;" /> 先训练一个分类器，然后根据误差把训练样本调整（加权），然后让后边的分类器重点学习这些分错过的样本，</p>
-<p><img src="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200603014720666.png" alt="image-20200603014720666" style="zoom: 33%;" /> 基础分类器可以非常非常弱，只要正确率大与0.5就行，思想如下： 每个训练器的输出h(x)✖️权重a</p>
-<p><img src="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200603015540559.png" alt="image-20200603015540559" style="zoom: 33%;" /></p>
-<p>==Adaboost算法== Bossting算法中的一个门类： 和Bossting的思想类似，更加细化了 a：更新权重用的，也表示模型最终权重，也是模型学习出来的， Dt(i)：t时刻第i个样本的权重，根据分类正误用a增加减小 <img src="https://raw.githubusercontent.com/tianweiye/ThingsOnPC/master/pic/image-20200603021133806.png" alt="image-20200603021133806" style="zoom:50%;" /></p>
-<p>==Adaboost算法-求权重== T+1时刻，第i个样本的权重D：</p>
-$$
-<span class="math display">\[\begin{aligned}
-D_{T+1}(i) &amp;=\frac{1}{m} \cdot \frac{e^{-y_{i} \alpha_{1} h_{1}\left(x_{i}\right)}}{Z_{1}} \cdot \cdots \cdot \frac{e^{-y_{i} \alpha_{T} h_{T}\left(x_{i}\right)}}{Z_{T}} \\
-&amp;=\frac{e^{\sum_{t}-y_{i} \alpha_{t} h_{t}\left(x_{i}\right)}}{m \prod_{t} Z_{t}}=\frac{e^{-y_{i} \sum_{t} \alpha_{t} h_{t}\left(x_{i}\right)}}{m \prod_{t} Z_{t}} \\
-&amp;=\frac{e^{-y_{i} f\left(x_{i}\right)}}{m \prod_{t} Z_{t}}
-
-\\
-\\
-f\left(x_{i}\right)&amp;=\sum_{t} \alpha_{t} h_{t}\left(x_{i}\right)\\
-&amp;分类器的估计值:h_t(x_i)\\
-&amp;正确结果y_i
-\end{aligned}\]</span>
-<p>$$</p>
-$$
-<span class="math display">\[\begin{array}{l}
-H\left(x_{i}\right) \neq y_{i} \Rightarrow y_{i} f\left(x_{i}\right) \leq 0 \Rightarrow e^{-y_{i} f\left(x_{i}\right)} \geq 1 \\
-{\left[H\left(x_{i}\right) \neq y_{i}\right] \leq e^{-y_{i} f\left(x_{i}\right)}} ，[・]成立输出1，否则是0\\
-\frac{1}{m} \sum_{i}\left[H\left(x_{i}\right) \neq y_{i}\right] \leq \frac{1}{m} \sum_{i} e^{-y_{i} f\left(x_{i}\right)}\\
-误差上限：\\
-\begin{aligned}
-\frac{1}{m} \sum_{i}\left[H\left(x_{i}\right) \neq y_{i}\right] &amp; \leq \frac{1}{m} \sum_{i} e^{-y_{i} f\left(x_{i}\right)} \\
-&amp;=\sum_{i}\left(\prod_{t} Z_{t}\right) D_{T+1}(i) \\
-&amp;=\prod_{t} Z_{t} \quad\left(\text { since } D_{T+1} \text { sums to } 1\right)\\
-
-
-无法直接最小化Z的乘，只能最小化每个当前的z..\\
-\min _{\alpha} Z_{t} &amp;\Rightarrow \min \prod_{t} Z_{t}\\
-\end{aligned}
-\end{array}\]</span>
-<p>$$</p>
-<p><span class="math display">\[
-最小化Z\\
-\begin{array}{l}
-y, h(x) \in\{-1,+1\} \quad Z=\sum_{i} D_{i} e^{-\alpha y_{i} h\left(x_{i}\right)} \\
-e^{-\alpha y_{i} h\left(x_{i}\right)}=e^{-\alpha} P\left(y_{i}=h\left(x_{i}\right)\right)+e^{\alpha} P\left(y_{i} \neq h\left(x_{i}\right)\right) \\
-\frac{\partial Z}{\partial \alpha}=-e^{-\alpha} \sum_{i} D_{i} P\left(y_{i}=h\left(x_{i}\right)\right)+e^{\alpha} \sum_{i} D_{i} P\left(y_{i} \neq h\left(x_{i}\right)\right)=0 \\
-\alpha=\frac{1}{2} \ln \frac{\sum_{i} D_{i}\left(1-P\left(y_{i} \neq h\left(x_{i}\right)\right)\right)}{\sum_{i} D_{i} P\left(y_{i} \neq h\left(x_{i}\right)\right)}=\frac{1}{2} \ln \frac{1-\varepsilon}{\varepsilon}
-\end{array}
-\]</span></p>
-<p>==Adaboost算法-误差上界== <img src="/Users/tianweiye/%E5%90%84%E7%A7%8D%E7%AC%94%E8%AE%B0/pic/image-20200603024758732.png" alt="image-20200603024758732" style="zoom:33%;" /> 因为Z＜１，所以误差上界会趋近0</p>
-<p>==RegionBoost== 和Adaboost相比，增加的动态权重（Dynamic Weighting Scheme） 根据输入的x的不同，会有一个特定的权重， <img src="/Users/tianweiye/%E5%90%84%E7%A7%8D%E7%AC%94%E8%AE%B0/pic/image-20200603030034310.png" alt="image-20200603030034310" style="zoom:33%;" /> eg：C1对数据集分类，C2对C1分错的分类，测试的时候，如果C2判断X是易分对的数据，那么C1就比较可靠</p>
+        <h2 id="直接加载zip里的文件zipfile.zip.read">直接加载zip里的文件<code>ZipFile(‘*.zip’).read('*')</code></h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> zipfile <span class="keyword">import</span> ZipFile</span><br><span class="line">PATH = <span class="string">'*.zip'</span></span><br><span class="line"><span class="keyword">with</span> ZipFile(PATH) <span class="keyword">as</span> f:</span><br><span class="line">	f.read().decode(<span class="string">'utf-8'</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="查看压缩包目录prindirnamelist">查看压缩包目录<code>prindir(),namelist()</code></h2>
+<h2 id="匹配当前目录下文件glob.glob.py">匹配当前目录下文件<code>glob.glob('*.py')</code></h2>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源 https://tianweiye.github.io </span>
